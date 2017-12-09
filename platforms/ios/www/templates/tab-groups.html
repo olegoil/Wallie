@@ -1,0 +1,38 @@
+<ion-view view-title="{{'groups_title' | translate}}" class="contentback">
+  
+    <ion-nav-bar class="bar-clear contentbackbar">
+      <ion-nav-back-button></ion-nav-back-button>
+      <ion-nav-buttons side="right">
+        <div class="list">
+          <a ui-sref="cart" class="item item-icon-right" style="background-color:rgba(0, 0, 0, 0);border:none;overflow: visible;">
+          <span class="badge badge-assertive" style="top:0;" ng-if="cartsum > 0">{{recalc(cartsum)}}</span>
+            <i class="icon btn_cart"></i>
+          </a>
+        </div>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+
+  <ion-content>
+
+    <div class="row row-top" style="text-align: center;" ui-sref="tab.promo">
+      <div class="col col-top">
+
+        <img style="width:40%;max-width:250px;" src="img/btn/groups.png" />
+        <h4 class="light" style="max-width:250px;margin:0 auto;font-family:SFUITR;">{{'groups_become_mem' | translate}}</h4>
+        <h6 class="light" style="max-width:250px;margin:0 auto;font-family:SFUITR;">{{'groups_place_com' | translate}}</h6>
+
+      </div>
+    </div>
+
+    <div class="list sharemiddletabs">
+      <a onclick="window.open('https://www.facebook.com/', '_system')" class="item item-icon-right" style="font-family:SFUITR;"> {{'groups_fb' | translate}} <i class="icon ion_fb" style="width:25px;height:25px;right:20px;top:11px;"></i></a>
+
+      <a onclick="window.open('https://vk.com/', '_system')" class="item item-icon-right" style="font-family:SFUITR;"> {{'groups_vk' | translate}} <i class="icon ion_vk" style="width:25px;height:25px;right:20px;top:11px;"></i></a>
+
+      <a onclick="window.open('https://www.twitter.com/', '_system')" class="item item-icon-right" style="font-family:SFUITR;"> {{'groups_tw' | translate}} <i class="icon ion_tw" style="width:25px;height:25px;right:20px;top:11px;"></i></a>
+
+      <a onclick="window.open('https://www.instagram.com/', '_system')" class="item item-icon-right" style="font-family:SFUITR;"> {{'groups_ig' | translate}} <i class="icon ion_ig" style="width:25px;height:25px;right:20px;top:11px;"></i></a>
+    </div>
+
+  </ion-content>
+</ion-view>

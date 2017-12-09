@@ -1,0 +1,24 @@
+<ion-view view-title="{{'order_bs_top_1' | translate}}" class="contentback">
+
+  <ion-nav-bar class="navbarbackimg">
+    <ion-nav-buttons side="left">
+      <a ng-click="goback()" class="button button-clear button-light"><i class="icon ion-chevron-left"></i></a>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+    <ion-content>
+        <div class="list">
+
+            <div class="card" ng-repeat="cat in categories" style="padding-right:0;" cache-src="http://www.olegtronics.com/admin/img/menu/{{cat.cat_institution}}/cat/{{cat.cat_pic}}" src-is="background" background-style="no-repeat center" on-finish="acceptStyle" ng-style="myStyle">
+                <a class="item item-text-wrap" ui-sref="tab.entry-start({catId: cat.cat_id, goodId: cat.cat_ingr})" style="background-color:rgba(255,255,255,0.2);">
+                    <h2>{{htmlEntities(cat.cat_name)}}</h2>
+                    <p>{{htmlEntities(cat.cat_desc)}}</p>
+                    <p>&nbsp;</p>
+                </a>
+            </div>
+
+            <p>&nbsp;</p>
+
+        </div>
+    </ion-content>
+</ion-view>

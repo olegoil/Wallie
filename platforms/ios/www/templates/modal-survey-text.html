@@ -1,0 +1,22 @@
+<ion-modal-view class="navbarbackimg">
+  <ion-header-bar align-title="center">
+    <h1 class="title">{{'survey_text_title' | translate}}</h1>
+    <button ng-if="answers.answer" class="button button-clear button-small" ng-click="sendAnswer(7)" style="color:#fff;">
+      {{'survey_text_send' | translate}}
+    </button>
+  </ion-header-bar>
+  <ion-content class="grayback">
+
+    <div class="padding" style="background-color:#F8F8F8;text-align:left;border:0px;margin:0px;">
+      <h4 class="item item-text-wrap darkgreentxt" ng-if="survey.asks_name != 0 && survey.asks_name">{{survey.asks_name}}</h4>
+      <br/>
+      <h6 style="color:#8C8C8C;" class="item item-divider item-text-wrap" ng-if="survey.asks_message != 0 && survey.asks_message">{{survey.asks_message}}</h6>
+    </div>
+    <div class="list">
+      <label class="item item-input">
+        <textarea placeholder="{{'survey_text_answer' | translate}}" ng-model="answers.answer" style="padding:15px;width:100%;height:100px;word-wrap: break-word;" />
+      </label>
+    </div>
+
+  </ion-content>
+</ion-modal-view>

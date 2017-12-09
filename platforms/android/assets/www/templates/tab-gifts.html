@@ -1,0 +1,49 @@
+<ion-view view-title="{{'gifts_title' | translate}}">
+  
+  <ion-nav-bar class="navbarbackimg">
+    <ion-nav-back-button></ion-nav-back-button>
+    <ion-nav-buttons side="right">
+      <div class="list">
+        <a ui-sref="cart" class="item item-icon-right" style="background-color:rgba(0, 0, 0, 0);border:none;overflow: visible;">
+          <span class="badge badge-assertive" style="top:0;" ng-if="cartsum > 0">{{recalc(cartsum)}}</span>
+          <i class="icon btn_cart"></i>
+        </a>
+      </div>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content class="contentbackgifts">
+    
+    <div class="card" ui-sref="tab.gifts-detail({giftId: gift.gifts_id})" ng-repeat="gift in gifts" style="position:relative;top:0px;background-size:cover;padding:0;margin-top:7px;margin-bottom:7px;"  cache-src="http://www.olegtronics.com/admin/img/gifts/{{gift.gifts_institution}}/pic/{{gift.gifts_pic}}" src-is="background" background-style="no-repeat center" on-finish="acceptStyle" ng-style="myStyle">
+      <div class="item item-text-wrap" style="background-color:rgba(0,0,0,0.3);border:0px;margin:0px;">
+        <h2>&nbsp;</h2>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+      <div class="item item-divider" style="background-color:rgba(0,0,0,0.3);border:0px;margin:0px;">
+        <div class="row">
+          <div class="col col-75">
+            <br/>
+            <h2 class="light" style="font-family:SFUITR;font-size:17px;">{{gift.gifts_name}}</h2>
+          </div>
+          <div class="col" style="padding-left:5px;border-left:1px solid rgba(255,255,255,0.2);">
+            <h4 class="light" style="font-family:SFUITR;">{{'gifts_cost' | translate}}</h4>
+            <h2 class="light" style="font-family:SFUIDT;"><img src="img/signs/points.png" height="20" style="vertical-align:middle;" /> <strong style="vertical-align:middle;">{{gift.gifts_points}}</strong></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background-color:rgba(0,0,0,0);text-align:center;border:0px;margin:0px;">
+      <img src="img/signs/gift.png" width="20%" />
+      <h5 style="font-family:SFUITR;">{{'gifts_take_look' | translate}}</h5>
+      <h6 style="max-width: 200px;margin:0 auto;font-family:SFUITR;">{{'gifts_look_here' | translate}}</h6>
+    </div>
+
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+  </ion-content>
+</ion-view>

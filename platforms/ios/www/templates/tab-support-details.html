@@ -1,0 +1,44 @@
+<ion-view view-title="{{'support_details_title' | translate}}">
+  
+  <ion-nav-bar class="navbarbackimg">
+    <ion-nav-buttons side="left">
+      <a ng-click="goback()" class="button button-icon" style="color:#fff;">
+        <i class="ion-chevron-left"></i>
+      </a>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <div class="list">
+        <a ui-sref="cart" class="item item-icon-right" style="background-color:rgba(0, 0, 0, 0);border:none;overflow: visible;">
+          <span class="badge badge-assertive" style="top:0;" ng-if="cartsum > 0">{{recalc(cartsum)}}</span>
+          <i class="icon btn_cart"></i>
+        </a>
+      </div>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content>
+    
+    <ion-list>
+
+      <div ng-repeat="faq in getfaq">
+        <ion-item class="item item-button-right item-text-wrap SFUITR" ng-click="toggleGroup(faq)" ng-class="{active: isGroupShown(faq)}" >
+          {{faq.question}}
+        </ion-item>
+        <ion-item class="item item-accordion item-text-wrap SFUITR" ng-show="isGroupShown(faq)">
+          {{faq.answer}}
+        </ion-item>
+      </div>
+
+    </ion-list>
+
+    <div style="background-color:rgba(0,0,0,0);text-align:center;border:0px;margin:0px;" ui-sref="support-chat">
+      <img src="img/signs/paperflight.png" width="10%" />
+      <h5 class="SFUITR">{{'support_details_connection' | translate}}</h5>
+      <h6 class="SFUITR">{{'support_details_question' | translate}}</h6>
+    </div>
+
+    <br/>
+    <br/>
+
+  </ion-content>
+</ion-view>

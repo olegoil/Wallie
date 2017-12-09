@@ -1,0 +1,49 @@
+<ion-view view-title="{{'support_chat_title' | translate}}">
+  
+  <ion-nav-bar class="navbarbackimg titlecenter">
+    <ion-nav-buttons side="left">
+      <a ng-click="goback()" class="button button-icon" style="color:#fff;">
+        <i class="ion-close-round"></i>
+      </a>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <div class="list">
+        <a ui-sref="cart" class="item item-icon-right" style="background-color:rgba(0, 0, 0, 0);border:none;float:right;overflow:visible;">
+          <span class="badge badge-assertive" style="top:0;" ng-if="cartsum > 0">{{recalc(cartsum)}}</span>
+          <i class="icon btn_cart"></i>
+        </a>
+        <a class="item item-icon-right" style="background-color:rgba(0, 0, 0, 0);border:none;float:right;" ng-click="call()">
+          <i class="icon btn_phone"></i>
+        </a>
+      </div>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content id="support">
+
+    <div style="background-color:rgba(0,0,0,0);text-align:center;border:0px;margin:0px;">
+      <img src="img/signs/paperflight.png" width="10%" />
+      <h6 style="max-width:200px;margin:0 auto;font-family:SFUITR;">{{'support_chat_question' | translate}}</h6>
+    </div>
+
+    <div ng-repeat="message in messages" ng-class="{other: message.chat_from == profile.user_real_id}" class="messages">
+
+        <div class="message">
+          <img ng-if="message.chat_from == profile.user_real_id && message.chat_answered == 0 && message.chat_read == 1" src="img/signs/doublecheck.png" height="20" />
+          <img ng-if="(message.chat_from == profile.user_real_id && message.chat_answered == 0 && message.chat_read == 0) || (message.chat_from == profile.user_real_id && message.got == 0 && message.read == 0)" src="img/signs/doublecheck_.png" height="20" />
+          <span class="SFUITR">{{ message.chat_message }}</span>
+        </div>
+
+    </div>
+
+  </ion-content>
+
+<ion-footer-bar class="bar-stable item-input-inset">
+  <button class="button button-clear button-stable icon ion-plus" ng-click="sendMessage()"></button>
+  <label class="item-input-wrapper" style="background-color:#fff;">
+    <input type="text" placeholder="{{'support_chat_message' | translate}}" ng-model="data.message" style="background-color:#fff;width: 100%;" />
+  </label>
+  <button class="button button-clear darkgreentxt SFUITR" ng-click="sendMessage()">{{'support_chat_send' | translate}}</button>
+</ion-footer-bar>
+
+</ion-view>

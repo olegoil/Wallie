@@ -1,0 +1,38 @@
+<ion-view view-title="{{'fifth_title' | translate}}" class="contentback">
+  
+  <ion-nav-bar class="navbarbackimg">
+    <ion-nav-back-button></ion-nav-back-button>
+    <ion-nav-buttons side="right">
+      <div class="list">
+        <a ui-sref="cart" class="item item-icon-right" style="background-color:rgba(0, 0, 0, 0);border:none;overflow: visible;">
+          <span class="badge badge-assertive" style="top:0;" ng-if="cartsum > 0">{{recalc(cartsum)}}</span>
+          <i class="icon btn_cart"></i>
+        </a>
+      </div>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content>
+    
+    <div class="list">
+      <div class="item" style="background-color:rgba(0, 0, 0, 0);border:0px;text-align: center;padding:0px;"><h2 class="energized">{{'fifth_amount' | translate}} </h2></div>
+      <div class="item" style="background-color:rgba(0, 0, 0, 0);border:0px;text-align: center;"><h2 class="fifthgift"><rating readonly="readOnly" class="energized" ng-model="purchases.lastfifth" max="purchases.max"></rating></h2></div>
+      <div class="item item-text-wrap" style="text-align: center;background-color:rgba(0, 0, 0, 0);border:0px;">
+        <h2 class="light" ng-if="!smallscreen">{{'fifth_qr' | translate}}</h2>
+        <br ng="!smallscreen" />
+        <div class="list card" style="margin:0 auto;width:70%;border-radius: 15px;box-shadow: 5px 8px 10px rgba(0, 0, 0, 0.3);max-width: 200px;">
+          <div class="item item-text-wrap">
+            <div class="row">
+              <div class="col" style="text-align: center;border-bottom:1px solid rgba(0,0,0,0.1);">
+                <qr style="margin:0 auto;text-align:center;" text="qrcodeString" type-number="typeNumber" correction-level="correctionLevel" size="size" input-mode="inputMode" image="image"></qr>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br ng="!smallscreen" />
+        <button ng-click="goback()" class="button button-dark button-block" style="margin:0 auto;background-color:#7ED321;text-align:center;border-radius:20px;max-width: 200px;">{{'fifth_ready' | translate}}</button>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,38 @@
+<ion-view view-title="{{'order_qr_title' | translate}}" class="contentback">
+  
+  <ion-nav-bar class="bar-clear contentbackbar"></ion-nav-bar>
+
+  <ion-content style="top:44px;">
+
+    <div class="row row-top" style="text-align: center;">
+      <div class="col col-center">
+
+        <h6 class="light" style="max-width:200px;margin:0 auto;font-family:SFUITR;font-size:13px;">{{'order_qr_text_top' | translate}}</h6>
+        <br/>
+        <div class="list card" style="margin:0 auto;width:70%;border-radius: 15px;box-shadow: 5px 8px 10px rgba(0, 0, 0, 0.3);max-width: 200px;">
+          <div class="item item-text-wrap">
+            <div class="row">
+              <div class="col" style="text-align: center;border-bottom:1px solid rgba(0,0,0,0.1);">
+                <qr style="margin:0 auto;text-align:center;" text="qrcodeString" type-number="typeNumber" correction-level="correctionLevel" size="size" input-mode="inputMode" image="image"></qr>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <h1 class="darkgreentxt" style="font-family:SFUITL;font-size:36px;">{{billsum}}</h1>
+                <h3 class="dark" style="font-family:SFUITR;font-size:10px;">{{'order_qr_money' | translate}}</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <br/>
+
+        <button ng-click="reviewAsk()" class="button button-dark button-block" style="margin:0 auto;background-color:#7ED321;text-align:center;border-radius:20px;max-width: 200px;font-family:SFUIDS;font-size:17px;">{{'order_qr_ready' | translate}}</button>
+
+        <button ng-click="goback()" class="button icon-left ion-chevron-left button-clear button-light" style="font-family: SFUITR;font-size:17px;">{{'order_qr_change_amount' | translate}}</button>
+
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

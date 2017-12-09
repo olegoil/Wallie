@@ -1,0 +1,17 @@
+<ion-modal-view class="navbarbackimg">
+  <ion-header-bar align-title="center">
+    <h1 class="title">{{'survey_radio_title' | translate}}</h1>
+  </ion-header-bar>
+  <ion-content class="grayback">
+
+    <div class="padding" style="background-color:#F8F8F8;text-align:left;border:0px;margin:0px;">
+      <h4 class="item item-text-wrap darkgreentxt" ng-if="survey.asks_name != 0 && survey.asks_name">{{survey.asks_name}}</h4>
+      <br/>
+      <h6 style="color:#8C8C8C;" class="item item-divider item-text-wrap" ng-if="survey.asks_message != 0 && survey.asks_message">{{survey.asks_message}}</h6>
+    </div>
+    <ion-list>
+      <ion-radio ng-repeat="answ in survey.asks_answ track by $index" ng-model="answers.answer" ng-value="$index" ng-click="sendAnswer(6)">{{answ}}</ion-radio>
+    </ion-list>
+
+  </ion-content>
+</ion-modal-view>

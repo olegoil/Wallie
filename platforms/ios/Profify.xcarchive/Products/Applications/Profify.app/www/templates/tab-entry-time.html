@@ -1,0 +1,26 @@
+<ion-view view-title="{{'order_bs_top_4' | translate}}" class="contentback">
+
+  <ion-nav-bar class="navbarbackimg">
+    <ion-nav-buttons side="left">
+      <a ng-click="goback()" class="button button-clear button-light"><i class="icon ion-chevron-left"></i></a>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+    <ion-content>
+        <div class="list">
+
+            <div ng-repeat="day in days7" style="border-bottom:1px solid #444;">
+                <ion-item class="item item-icon-right" ng-click="toggleGroup(day, $index)">
+                    {{day.workdayname}}, {{day.workday}}.{{day.workmonth}}.{{day.workyear}}
+                </ion-item>
+
+                <div ng-if="isGroupShown == day" class="padding"> 
+                    <button ng-click="setOrderHour(hour, timecalc(hour), day)" class="button button-small button-light pull-left" style="margin:7px;padding:10px;" ng-repeat="hour in days7[indexid].items">
+                        {{timecalc(hour)}}
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

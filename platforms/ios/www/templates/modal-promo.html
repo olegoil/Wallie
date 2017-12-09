@@ -1,0 +1,24 @@
+<ion-modal-view class="navbarbackimg">
+  <ion-header-bar align-title="center">
+    <button class="button button-clear button-small" ng-click="closeModal(4)" style="color:#fff;">
+      {{'promo_modal_cancel' | translate}}
+    </button>
+    <h1 class="title" style="color:#fff;font-size:14px;">{{'promo_modal_code' | translate}}</h1>
+    <button ng-if="profile.user_promo && profile.user_promo != '0'" class="button button-clear button-small" ng-click="sendPromo()" style="color:#fff;">{{'promo_modal_next' | translate}}</button>
+  </ion-header-bar>
+  <ion-content class="grayback">
+
+    <div class="list">
+      <div class="item item-divider">
+        &nbsp;
+      </div>
+      <label class="item item-input">
+        <div class="input-label">
+          {{'promo_modal_code' | translate}}
+        </div>
+        <input type="tel" placeholder="{{'promo_modal_enter_code' | translate}}" ng-model="profile.user_promo">
+      </label>
+    </div>
+
+  </ion-content>
+</ion-modal-view>

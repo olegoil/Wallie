@@ -1,0 +1,28 @@
+<ion-modal-view class="navbarbackimg">
+  <ion-header-bar align-title="center">
+    <button class="button button-clear button-small" ng-click="closeModal(2)" style="color:#fff;">
+      <i class="icon ion-chevron-left"></i>
+    </button>
+      <h1 class="title" style="color:#fff;font-size:14px;font-family:SFUITR;">{{'mobile_title' | translate}}</h1>
+    <button class="button button-clear button-small" ng-click="askConfirm()" style="color:#fff;font-family:SFUITR;">{{'mobile_next' | translate}}</button>
+  </ion-header-bar>
+
+  <ion-content class="grayback">
+
+    <div class="list">
+      <div class="item item-divider">
+        &nbsp;
+      </div>
+      <div class="item item-icon-right SFUITR" ng-click="openModal(4)">{{profile.user_country_name}} <i class="icon ion-chevron-right"></i></div>
+      <label class="item item-input">
+        <span class="mobile input-label SFUITR">+{{profile.user_mob_code}}</span>
+        <input type="tel" class="mobile SFUITR" placeholder="{{'mobile_number' | translate}}" ng-model="profile.user_mob_no_code">
+      </label>
+    </div>
+
+    <div class="padding">
+      <h6 class="SFUITR">{{'mobile_text' | translate}}</h6>
+    </div>
+
+  </ion-content>
+</ion-modal-view>

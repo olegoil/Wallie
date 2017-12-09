@@ -1,0 +1,71 @@
+<ion-view view-title="" class="contentback">
+  
+  <ion-nav-bar class="bar-clear titlecenter contentbackbar">
+    <ion-nav-buttons side="left">
+      <a ng-click="goelse()" class="button button-clear button-icon">
+        <i class="ion-chevron-left"></i>
+      </a>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <div class="list">
+        <a ui-sref="cart" class="item item-icon-right" style="background-color:rgba(0, 0, 0, 0);border:none;float:right;overflow: visible;">
+          <span class="badge badge-assertive" style="top:0;" ng-if="cartsum > 0">{{recalc(cartsum)}}</span>
+          <i class="icon btn_cart"></i>
+        </a>
+        <a class="item item-icon-right" style="background-color:rgba(0, 0, 0, 0);border:none;float:right;" ui-sref="profile-edit">
+          <i class="icon btn_edit"></i>
+        </a>
+      </div>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content>
+
+    <div class="padding" style="text-align: center;" ng-click="showImageMaker()">
+      <div class="profileimage" ng-if="profile.user_pic != 0 && profile.user_pic && profile.user_pic != ''" cache-src="http://www.olegtronics.com/admin/img/user/{{profile.user_institution}}/pic/{{profile.user_pic}}" src-is="background" background-style="no-repeat center">
+      </div>
+      <div class="profileimage" ng-if="profile.user_pic == 0 || !profile.user_pic || profile.user_pic == ''" style="background-image:url('img/btn/noimage.png')">
+      </div>
+      <h3 class="light SFUITR">
+          {{(profile.user_surname != '0' && profile.user_surname != '') ? htmlEntities(profile.user_surname) : ''}} 
+          {{(profile.user_name != '0' && profile.user_name != '') ? htmlEntities(profile.user_name) : ''}} 
+          {{(profile.user_middlename != '0' && profile.user_middlename != '') ? htmlEntities(profile.user_middlename) : ''}}
+      </h3>
+      <h5 class="light SFUITR">{{'profile_promo' | translate}}: {{profile.user_real_id}}</h5>
+    </div>
+
+    <section id="cd-timeline" class="cd-container" style="background-color:#fff;width:100%;padding-top:20px;border-radius:20px 20px 0 0;">
+      <div class="cd-timeline-block">
+        <h4 class="hh34" style="margin-left:20px;text-align: center;font-family:SFUITR;">{{'profile_history' | translate}}</h4>
+        <div ng-if="ordersAll" class="list card flat" style="background-color:rgba(255,255,255,0);box-shadow: none;" ng-repeat="order in ordersAll | orderBy: '-order.order_start'">
+
+          <div class="cd-timeline-icon text-center" ng-class="{cdborderyellow: order.order_status == 0, cdbordergreen: order.order_status == 1 || order.order_status == 2, cdborderred: order.order_status == 3 || order.order_status == 4}">
+            <i class="ion-clock timelineIcon cdcoloryellow" ng-if="order.order_status == '0'"></i>
+            <i class="ion-checkmark timelineIcon cdcolorgreen" ng-if="order.order_status == '1'"></i>
+            <i class="ion-checkmark-round timelineIcon cdcolorgreen" ng-if="order.order_status == '2'"></i>
+            <i class="ion-close-round timelineIcon cdcolorred" ng-if="order.order_status == '3'"></i>
+            <i class="ion-close-round timelineIcon cdcolorred" ng-if="order.order_status == '4'"></i>
+          </div>
+          <div class="cd-timeline-contentnew">
+              <h4 class="font-style:SFUITR;" style="margin-top:0px;">{{order.order_name}}</h4>
+              <span ng-if="order.order_status == 0" class="pull-right SFUITR" style="color:#888 !important;"><span class="statusinject cdbackyellow"></span> {{'profile_awaiting' | translate}} - {{timecalc(order.order_when)}}</span>
+              <span ng-if="order.order_status == 1" class="pull-right SFUITR" style="color:#888 !important;"><span class="statusinject cdbackgreen"></span>{{'profile_confirmed' | translate}} - {{timecalc(order.order_when)}}</span>
+              <span ng-if="order.order_status == 2" class="pull-right SFUITR" style="color:#888 !important;"><span class="statusinject cdbackgreen"></span>{{'profile_confirmed' | translate}} - {{timecalc(order.order_when)}}</span>
+              <span ng-if="order.order_status == 3" class="pull-right SFUITR" style="color:#888 !important;"><span class="statusinject cdbackred"></span>{{'profile_denied' | translate}} - {{timecalc(order.order_when)}}</span>
+              <span ng-if="order.order_status == 4" class="pull-right SFUITR" style="color:#888 !important;"><span class="statusinject cdbackred"></span>{{'profile_canceled' | translate}} - {{timecalc(order.order_when)}}</span>
+              <p class="marginTop5 cd-author SFUITR" style="color:#888 !important;">{{formatTime(order.order_start)}}</p>
+              <p class="timelineText SFUITR" style="color:#888 !important;">{{order.order_desc}}</p>
+              <button class="button button-small button-assertive icon icon-left ion-close-circled pull-right SFUITR" ng-click="beforeCancelOrder(order.order_id)" ng-if="order.order_status != 3 && order.order_status != 4">{{'profile_cancel' | translate}}</button>
+          </div>
+
+        </div>
+        <div style="background-color:#fff;text-align:center;border:0px;margin: 0 0 100px 0;" ui-sref="tab.transactions">
+          <img src="img/btn/history.png" width="20%" />
+          <h5 class="SFUITR">{{'profile_go_history' | translate}}</h5>
+          <h6 class="SFUITR">{{'profile_operations' | translate}}</h6>
+        </div>
+      </div>
+    </section>
+
+  </ion-content>
+</ion-view>

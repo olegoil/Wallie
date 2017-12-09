@@ -1,0 +1,55 @@
+<ion-view view-title="{{'cart_title' | translate}}" class="contentback">
+  
+  <ion-nav-bar class="navbarbackimg">
+    <ion-nav-buttons side="left">
+      <a ng-click="goback()" class="button button-clear button-light"><i class="icon ion-chevron-left"></i></a>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <a ui-sref="cart-send" class="button button-clear button-light" ng-if="cartsum > 0">{{'cart_next' | translate}}</a>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content>
+    
+    <div class="card" ng-if="cartsum > 0" ng-repeat="cart in allcart" style="position:relative;background-image:url('http://www.olegtronics.com/admin/img/menu/{{cart.menue_institution}}/300/{{cart.menue_pic}}');background-size:cover;padding:0;margin-top:7px;margin-bottom:7px;">
+
+      <div class="item item-divider" style="background-color:rgba(0,0,0,0.5);border:0px;margin:0px;">
+        <div class="row">
+          <div class="col" style="text-align: center;">
+            <button class="button button-clear" ng-click="sub(cart)"><i class="icon ion-minus light"></i></button>
+          </div>
+          <div class="col" style="text-align: center;">
+            <h4 class="light SFUITR">{{'cart_amount' | translate}}</h4>
+            <h1 class="light SFUITR">{{cart.amount}}</h1>
+          </div>
+          <div class="col" style="text-align: center;">
+            <button class="button button-clear" ng-click="add(cart)"><i class="icon ion-plus light"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div ui-sref="tab.menu-detail({menuId: cart.menue_id})" class="item item-divider" style="background-color:rgba(0,0,0,0.5);border:0px;margin:0px;">
+        <div class="row">
+          <div class="col col-75">
+            <br/>
+            <h2 class="light SFUITR">{{cart.menue_name}}</h2>
+          </div>
+          <div class="col" style="padding-left:5px;border-left:1px solid rgba(255,255,255,0.2);">
+            <h4 class="light SFUITR">{{'cart_costs' | translate}}</h4>
+            <h2 class="light SFUITR" style="overflow: visible">{{'cart_money' | translate}} {{recalc(cart.menue_cost)}}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div ng-if="cartsum == 0" style="background-color:rgba(0,0,0,0);text-align:center;border:0px;margin:0px;">
+      <img src="img/btn/cart.png" width="20%" />
+      <h5 class="light SFUITR">{{'cart_empty' | translate}}</h5>
+      <h6 class="light SFUITR" style="max-width: 200px;margin:0 auto;">{{'cart_empty_take' | translate}}</h6>
+    </div>
+
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+  </ion-content>
+</ion-view>

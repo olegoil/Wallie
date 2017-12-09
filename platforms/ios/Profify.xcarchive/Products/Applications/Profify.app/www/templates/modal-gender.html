@@ -1,0 +1,17 @@
+<ion-modal-view class="navbarbackimg">
+  <ion-header-bar align-title="center">
+  
+  <button class="button button-clear button-small" ng-click="closeModal(1)" style="color:#fff;">
+    <i class="icon ion-chevron-left"></i>
+  </button>
+  <h1 class="title" style="color:#fff;font-size:14px;font-family:SFUITR;">{{'gender_gender' | translate}}</h1>
+  </ion-header-bar>
+  <ion-content>
+
+    <ion-list>
+      <ion-radio ng-model="profile.user_gender" ng-value="1" ng-click="closeModal(1)" class="SFUITR">{{'gender_male' | translate}}</ion-radio>
+      <ion-radio ng-model="profile.user_gender" ng-value="2" ng-click="closeModal(1)" class="SFUITR">{{'gender_female' | translate}}</ion-radio>
+    </ion-list>
+
+  </ion-content>
+</ion-modal-view>

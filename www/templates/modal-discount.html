@@ -1,0 +1,33 @@
+<ion-modal-view class="navbarbackimg">
+  <ion-header-bar align-title="center">
+    <button class="button button-clear button-small" ng-click="closeModal(5)" style="color:#fff;">
+      <i class="icon ion-chevron-left"></i>
+    </button>
+    <h1 class="title" style="color:#fff;font-size:14px;">{{'discount_modal_code' | translate}}</h1>
+  </ion-header-bar>
+  <ion-content class="grayback">
+
+    <div class="row row-top" style="text-align: center;">
+      <div class="col col-center">
+
+        <div class="list card" style="margin:0 auto;width:70%;border-radius: 15px;box-shadow: 5px 8px 10px rgba(0, 0, 0, 0.3);max-width: 200px;">
+          <div class="item item-text-wrap">
+            <div class="row">
+              <div class="col" style="text-align: center;border-bottom:1px solid rgba(0,0,0,0.1);">
+                <qr style="margin:0 auto;text-align:center;" text="qrcodeString" type-number="typeNumber" correction-level="correctionLevel" size="size" input-mode="inputMode" image="image"></qr>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <br/>
+
+        <button ng-click="closeModal(5);" class="button button-dark button-block" style="margin:0 auto;background-color:#7ED321;text-align:center;border-radius:20px;max-width: 200px;">{{'discount_modal_qr_ready' | translate}}</button>
+
+        <!--<button ng-click="scanning();" class="button icon-left ion-chevron-left button-clear button-light">{{'discount_modal_qr_change_discount' | translate}}</button>-->
+
+      </div>
+    </div>
+
+  </ion-content>
+</ion-modal-view>

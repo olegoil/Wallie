@@ -1,0 +1,74 @@
+<ion-view view-title="{{'card_title' | translate}}" class="contentback">
+  
+  <ion-nav-bar class="bar-clear contentbackbar">
+      <ion-nav-buttons side="right">
+        <div class="list">
+          <a ui-sref="cart" class="item item-icon-right" style="background-color:rgba(0, 0, 0, 0);border:none;overflow: visible;">
+            <span class="badge badge-assertive" style="top:0;" ng-if="cartsum > 0">{{recalc(cartsum)}}</span>
+            <i class="icon btn_cart"></i>
+          </a>
+        </div>
+      </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content scroll="false">
+
+    <ion-scroll>
+
+      <div class="row row-top" style="margin-top:0px;padding-top:0px;">
+        <div class="col col-top">
+
+          <div class="list card card-clear" style="box-shadow: none;max-width:500px;width:70%;margin:0 auto;background-color: rgba(0,0,0,0);" ng-if="!smallscreen">
+            <div class="item item-image item-clear" style="background-color: rgba(0,0,0,0);">
+              <img src="img/logo.png" />
+            </div>
+          </div>
+          
+          <div class="list card" style="border-radius: 15px;box-shadow: 5px 8px 10px rgba(0, 0, 0, 0.3);max-width:500px;margin:0 auto 10px auto;">
+            <div class="item item-text-wrap">
+              <div class="row">
+                <div class="col col-67">
+                  <h1 style="display:block;width:100%;overflow:hidden;text-transform: uppercase;font-family:SFUITS;font-size:17px;">{{'card_card' | translate}}</h1>
+                </div>
+                <div class="col" style="text-align: center;border-left:1px solid rgba(0,0,0,0.1);">
+                  <h1 style="font-weight:normal;color:#006C30;font-family:SFUITL;">{{badgeData.card}}</h1>
+                  <span style="font-size:11px;color:#888;font-family:SFUITL;font-size:10px;">{{'card_balance' | translate}}</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col col-67">
+                  <h3 style="color:#888;font-family:SFUITR;font-size:13px;">
+                    {{(profile.user_surname != '0' && profile.user_surname != '') ? htmlEntities(profile.user_surname) : ''}} 
+                    {{(profile.user_name != '0' && profile.user_name != '') ? htmlEntities(profile.user_name) : ''}} 
+                    {{(profile.user_middlename != '0' && profile.user_middlename != '') ? htmlEntities(profile.user_middlename) : ''}}
+                  </h3>
+                </div>
+                <div class="col">
+                </div>
+              </div>
+            </div>
+            <div ng-click="gotoCard()" animation="fade-in-out" class="item item-text-wrap light" style="background-color:#7ED321;text-align:center;">
+              <img src="img/btn/scan.png" style="height: 24px;vertical-align: middle;margin-right: 5px;font-family:SFUITS;"/> {{'card_show_card' | translate}}
+            </div>
+          </div>
+          
+          <div class="light" style="text-align: center;max-width:200px;margin:0 auto;font-family:SFUITR;font-size:12px;">{{'card_show_card_sub' | translate}}</div>
+
+        </div>
+      </div>
+
+    </ion-scroll>
+
+    <ion-tabs class="tabs-icon-top middletabs">
+
+      <ion-tab active on-select="" on-deselect="" title="{{'card_gifts' | translate}}" badge="badgeData.gifts" badge-style="badge-assertive" icon-on="btn_gifts" icon-off="btn_gifts" animation="fade-in-out" style="font-size:90%;color:#fff;" ng-click="gogifts()">
+      </ion-tab>
+      <ion-tab active on-select="" on-deselect="" title="{{'card_groups' | translate}}" badge="badgeData.groups" badge-style="badge-assertive" icon-on="btn_groups" icon-off="btn_groups" animation="fade-in-out" style="font-size:90%;color:#fff;" ng-click="gogroups()">
+      </ion-tab>
+      <ion-tab active on-select="" on-deselect="" title="{{'card_shares' | translate}}" badge="badgeData.share" badge-style="badge-assertive" icon-on="btn_share" icon-off="btn_share" animation="fade-in-out" style="font-size:90%;color:#fff;" ng-click="goshares()">
+      </ion-tab>
+
+    </ion-tabs>
+
+  </ion-content>
+</ion-view>

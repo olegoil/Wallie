@@ -1,0 +1,86 @@
+<ion-view view-title="{{'else_title' | translate}}">
+  
+  <ion-nav-bar class="navbarbackimg">
+    <ion-nav-buttons side="right">
+      <div class="list">
+        <a ui-sref="cart" class="item item-icon-right" style="background-color:rgba(0, 0, 0, 0);border:none;overflow: visible;">
+          <span class="badge badge-assertive" style="top:0;" ng-if="cartsum > 0">{{recalc(cartsum)}}</span>
+          <i class="icon btn_cart"></i>
+        </a>
+      </div>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content class="grayback">
+    
+    <div class="list">
+      <div class="item item-icon-right SFUITR" ui-sref="tab.profile">
+        {{'else_profile' | translate}}
+        <i class="icon ion_profile"></i>
+      </div>
+      <div class="item item-icon-right SFUITR" ui-sref="tab.purchase">
+        {{'else_purchase' | translate}}
+        <i class="icon ion_purchase"></i>
+      </div>
+      <div class="item item-icon-right SFUITR" ui-sref="tab.points">
+        {{'else_points' | translate}}
+        <i class="icon ion_points"></i>
+      </div>
+      <div class="item item-icon-right SFUITR" ng-click="openModal(2)">
+        {{'else_review' | translate}}
+        <i class="icon ion_review"></i>
+      </div>
+      <div class="item item-icon-right SFUITR" ng-click="openModal(1)">
+        {{'else_bonus' | translate}}
+        <i class="icon ion_bonus"></i>
+      </div>
+      <div class="item item-icon-right SFUITR" ui-sref="tab.share">
+        {{'else_share' | translate}}
+        <i class="icon ion_share"></i>
+      </div>
+      <div class="item item-icon-right SFUITR" ng-click="goToSupport()">
+        {{'else_support' | translate}}
+        <i class="icon ion_support"></i>
+      </div>
+      <div class="item item-icon-right SFUITR" ui-sref="tab.reservation">
+        {{'else_reservation' | translate}}
+        <i class="icon ion_reservation"></i>
+      </div>
+      <div class="item item-icon-right SFUITR" ui-sref="tab.entry-category">
+        {{'else_entry' | translate}}
+        <i class="icon ion_entry"></i>
+      </div>
+      <div class="item item-icon-right SFUITR" ui-sref="tab.fifthgift">
+        {{'else_fifthgift' | translate}}
+        <i class="icon ion_fifth"></i>
+      </div>
+      <div class="item item-icon-right SFUITR" ng-click="beforePromoSend()">
+        {{'else_promo' | translate}}
+        <i class="icon ion_promocode"></i>
+      </div>
+      <div class="item item-icon-right SFUITR" ng-click="beforeDiscountSend()">
+        {{'else_discount' | translate}}
+        <i class="icon ion_bonus"></i>
+      </div>
+      <div class="item item-icon-right SFUITR" ui-sref="tab.about-us">
+        {{'else_about_us' | translate}}
+        <i class="icon ion_about"></i>
+      </div>
+      <div class="item item-icon-right SFUITR" ui-sref="tab.about">
+        {{'else_about' | translate}}
+        <i class="icon ion_about_us"></i>
+      </div>
+      <div class="item item-text-wrap" style="text-align: center;">
+        <button class="button button-small darkgreentxt SFUITR" ng-click="changeLang('ru')">{{'langru' | translate}}</button>
+        <button class="button button-small darkgreentxt SFUITR" ng-click="changeLang('en')">{{'langen' | translate}}</button>
+        <button class="button button-small darkgreentxt SFUITR" ng-click="changeLang('de')">{{'langde' | translate}}</button>
+      </div>
+    </div>
+
+    <div class="padding" style="background-color:rgba(0,0,0,0);text-align:center;border:0px;margin:0px;">
+      <br/>
+      <h6 class="SFUITR">{{'else_policy' | translate}}</h6>
+    </div>
+
+  </ion-content>
+</ion-view>

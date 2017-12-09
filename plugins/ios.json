@@ -1,0 +1,88 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-instagram-plugin": {
+            "PACKAGE_NAME": "com.olegtronics.profify"
+        },
+        "cordova-plugin-android-permissions": {
+            "PACKAGE_NAME": "com.olegtronics.profify"
+        },
+        "cordova-plugin-camera": {
+            "CAMERA_USAGE_DESCRIPTION": " ",
+            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.olegtronics.profify"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.olegtronics.profify"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.olegtronics.profify"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.olegtronics.profify"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.olegtronics.profify"
+        },
+        "cordova-plugin-geolocation": {
+            "GEOLOCATION_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.olegtronics.profify"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "com.olegtronics.profify"
+        },
+        "cordova-plugin-image-picker": {
+            "PHOTO_LIBRARY_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.olegtronics.profify"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.olegtronics.profify"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.olegtronics.profify"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.olegtronics.profify"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.olegtronics.profify"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.olegtronics.profify"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "com.olegtronics.profify"
+        },
+        "cordova-sqlite-storage": {
+            "PACKAGE_NAME": "com.olegtronics.profify"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.olegtronics.profify"
+        },
+        "phonegap-plugin-barcodescanner": {
+            "CAMERA_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.olegtronics.profify"
+        },
+        "phonegap-plugin-push": {
+            "SENDER_ID": "597748602860",
+            "PACKAGE_NAME": "com.olegtronics.profify"
+        },
+        "cordova-plugin-fetch": {
+            "PACKAGE_NAME": "com.olegtronics.profify"
+        }
+    },
+    "dependent_plugins": {
+        "com.verso.cordova.clipboard": {
+            "PACKAGE_NAME": "com.olegtronics.profify"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.olegtronics.profify"
+        }
+    }
+}

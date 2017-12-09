@@ -1,0 +1,46 @@
+<ion-view view-title="{{'profile_edit_title' | translate}}" class="contentback">
+
+  <ion-nav-bar class="bar-clear contentbackbar">
+    <ion-nav-buttons side="left">
+      <a ng-click="goback()" class="button button-clear button-light SFUITR">{{'profile_edit_cancel' | translate}}</a>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <a ng-click="updateData()" class="button button-clear button-light SFUITR">{{'profile_edit_ready' | translate}}</a>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content>
+
+    <div class="padding" style="text-align: center;" ng-click="showImageMaker()">
+      <div class="profileimage" ng-if="profile.user_pic != 0 && profile.user_pic && profile.user_pic != ''" cache-src="http://www.olegtronics.com/admin/img/user/{{profile.user_institution}}/pic/{{profile.user_pic}}" src-is="background" background-style="no-repeat center" on-finish="acceptStyle" ng-style="myStyle">
+        <img src="img/btn/imagemake.png" class="profilemakeimage" />
+      </div>
+      <div class="profileimage" ng-if="profile.user_pic == 0 || !profile.user_pic || profile.user_pic == ''" style="background-image:url('img/btn/noimage.png')">
+        <img src="img/btn/imagemake.png" class="profilemakeimage" />
+      </div>
+      <h5 class="light SFUITR">{{'profile_edit_promo' | translate}}: {{profile.user_real_id}}</h5>
+    </div>
+
+    <div class="list">
+      <label class="item item-input">
+        <input type="text" placeholder="{{'profile_edit_surname' | translate}}" ng-model="profile.user_surname" class="SFUITR">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="{{'profile_edit_name' | translate}}" ng-model="profile.user_name" class="SFUITR">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="{{'profile_edit_middlename' | translate}}" ng-model="profile.user_middlename" class="SFUITR">
+      </label>
+      <div class="item item-divider SFUITR">
+        {{'profile_edit_data' | translate}}
+      </div>
+      <div class="item item-icon-right SFUITR" ng-click="openModal(1)">{{'profile_edit_gender' | translate}} <span class="item-note SFUITR" ng-if="profile.user_gender == 1">{{'profile_edit_male' | translate}}</span><span class="item-note SFUITR" ng-if="profile.user_gender == 2">{{'profile_edit_female' | translate}}</span><i class="icon ion-chevron-right"></i></div>
+      <div class="item item-icon-right SFUITR" ng-click="openDatePicker()">{{'profile_edit_birthday' | translate}} <span class="item-note SFUITR" ng-if="profile.user_birthday == 0 || profile.user_birthday == ''">{{'profile_edit_nobirth' | translate}}</span><span class="item-note SFUITR" ng-if="profile.user_birthday != 0 || profile.user_birthday != ''">{{userbirthday | date:'dd.MM.yyyy'}}</span><i class="icon ion-chevron-right"></i></div>
+      <div class="item item-icon-right SFUITR" ng-click="openModal(2)">{{'profile_edit_mobile' | translate}} <span class="item-note SFUITR" ng-if="profile.user_mob == 0 || profile.user_mob == ''">{{'profile_edit_nomob' | translate}}</span><span class="item-note SFUITR" ng-if="profile.user_mob != 0 || profile.user_mob != ''">{{profile.user_mob}}</span><i class="icon ion-chevron-right"></i></div>
+      <div class="item item-icon-right SFUITR" ng-click="openModal(3)">{{'profile_edit_email' | translate}} <span class="item-note SFUITR" ng-if="profile.user_email == 0 || profile.user_email == ''">{{'profile_edit_nomail' | translate}}</span><span class="item-note SFUITR" ng-if="profile.user_email != 0 || profile.user_email != ''">{{profile.user_email}}</span><i class="icon ion-chevron-right"></i></div>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+  </ion-content>
+</ion-view>

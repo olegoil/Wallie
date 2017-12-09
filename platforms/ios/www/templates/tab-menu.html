@@ -1,0 +1,47 @@
+<ion-view view-title="{{'menue_title' | translate}}">
+  
+  <ion-nav-bar class="navbarbackimg">
+    <ion-nav-buttons side="left">
+      <a ng-click="goback()" class="button button-icon" style="color:#fff;">
+        <i class="ion-chevron-left"></i>
+      </a>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <div class="list">
+        <a ui-sref="cart" class="item item-icon-right" style="background-color:rgba(0, 0, 0, 0);border:none;overflow: visible;">
+          <span class="badge badge-assertive" style="top:0;" ng-if="cartsum > 0">{{recalc(cartsum)}}</span>
+          <i class="icon btn_cart"></i>
+        </a>
+      </div>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content class="contentbackmenus">
+    
+    <div class="card" ui-sref="tab.menu-detail({menuId: menu.menue_id})" ng-repeat="menu in menus"  style="position:relative;top:0px;background-size:cover;padding:0;margin-top:7px;margin-bottom:7px;" cache-src="http://www.olegtronics.com/admin/img/menu/{{menu.menue_institution}}/300/{{menu.menue_pic}}" src-is="background" background-style="no-repeat center" on-finish="acceptStyle" ng-style="myStyle">
+      <div class="item item-text-wrap" style="background-color:rgba(0,0,0,0.5);border:0px;margin:0px;">
+        <h2>&nbsp;</h2>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+      <div class="item item-divider" style="background-color:rgba(0,0,0,0.5);border:0px;margin:0px;">
+        <div class="row">
+          <div class="col col-75">
+            <br/>
+            <h2 class="light" style="font-family:SFUITR;">{{menu.menue_name}}</h2>
+          </div>
+          <div class="col" style="padding-left:5px;border-left:1px solid rgba(255,255,255,0.2);">
+            <h4 class="light" style="font-family:SFUITR;">{{'menue_costs' | translate}}</h4>
+            <h2 class="light" style="overflow: visible;font-family:SFUITR;">{{'menue_money' | translate}} {{recalc(menu.menue_cost)}}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,59 @@
+<ion-view view-title="{{'order_bs_top_5' | translate}}" class="contentback">
+
+    <ion-nav-bar class="navbarbackimg">
+        <ion-nav-buttons side="right">
+            <button ng-click="placeOrder()" class="button greenback graytxt">
+                {{'order_bs_confirm' | translate}}
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-content>
+        <div class="list">
+
+            <div class="item list card" ng-repeat="order in finalOrder track by $index" style="padding-right:0;">
+                <h3 class="item item-text-wrap item-icon-right" style="border:0px;"><strong>{{order.menueName}} {{order.menueDesc}}</strong><i ng-click="removeOrder(order.menueId)" class="assertive icon ion-close-circled"></i></h3>
+                <h3 class="item item-text-wrap" style="border:0px;">{{order.orderDayName}}, {{order.orderHourName}}</h3>
+                <div class="item item-thumbnail-left" style="border:0px;">
+                    <img style="border-radius: 0px !important;margin:-9px 0px 0px -9px !important;" cache-src="http://www.olegtronics.com/admin/img/user/{{institution}}/pic/{{order.workerPic}}">
+                    <h2>{{order.workerName}}</h2>
+                    <p>{{order.workerProfession}}</p>
+                </div>
+            </div>
+            <div class="item card flat" style="text-align:center;background-color:rgba(255,255,255,0);border:0px;box-shadow:none;" ui-sref="tab.entry-category">
+                <button class="button button-fab button-positive icon ion-android-add waves-effect waves-button waves-light"></button>
+                <h4 class="positive">{{'order_bs_add_order' | translate}}</h4>
+            </div>
+
+            <form name="myForm">
+
+                <label class="item item-input">
+                    <span class="input-label">{{'order_bs_your_name' | translate}}</span>
+                    <input ng-model="data.name" type="text" placeholder="{{'order_bs_your_name_ex' | translate}}">
+                </label>
+                <label ng-class="{'item item-input': !notphone, 'item item-input notfilled': notphone}">
+                    <span for="phone" class="input-label">{{'order_bs_phone' | translate}}</span>
+                    <input ng-model="data.phone" ng-pattern="onlyNumbers" id="phone" name="phone" type="text" placeholder="{{'order_bs_ex_phone_1' | translate}}">
+                    <!-- <i class="icon ion-ios-plus-empty"></i> -->
+                    <p>
+                        <!-- <small ng-hide="myForm.phone.$error.pattern">{{'order_bs_ex_phone_1' | translate}}</small> -->
+                        <small class="assertive" ng-show="myForm.phone.$error.pattern">{{'order_bs_ex_phone_2' | translate}}</small>
+                    </p>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">{{'order_bs_email' | translate}}</span>
+                    <input ng-model="data.email" type="email" placeholder="{{'order_bs_email_ex' | translate}}">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">{{'order_bs_comment' | translate}}</span>
+                    <textarea ng-model="data.comments" placeholder="{{'order_bs_comment_ex' | translate}}"></textarea>
+                </label>
+
+            </form>
+
+            <p>&nbsp;</p>
+
+        </div>
+    </ion-content>
+        
+</ion-view>

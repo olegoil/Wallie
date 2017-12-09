@@ -1,0 +1,34 @@
+<ion-view view-title="{{'points_title' | translate}}">
+  
+  <ion-nav-bar class="navbarbackimg">
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+
+  <ion-content class="contentback" style="top:44px;">
+
+    <section ng-if="points" id="cd-timeline" class="cd-container" ng-style="pointStyle">
+      <div ng-if="points" class="cd-timeline-block">
+        <div class="list card flat" style="background-color:rgba(255,255,255,0);box-shadow: none;" ng-repeat="point in points | orderBy: '-point.points_id'">
+
+          <div class="cd-timeline-icon text-center cdbordergreen">
+            <i class="ion-clock timelineIcon cdcoloryellow" ng-if="point.points_proofed == '0'"></i>
+            <i class="ion-checkmark timelineIcon cdcolorgreen" ng-if="point.points_proofed == 1 && point.points_status == 0"></i>
+            <i class="ion-checkmark-round timelineIcon cdcolorgreen" ng-if="point.points_proofed == 1 && point.points_status == 2"></i>
+            <i class="ion-close-round timelineIcon cdcolorred" ng-if="point.points_proofed == 1 && point.points_status == 1"></i>
+          </div>
+          <div class="cd-timeline-contentnew">
+              <h4 style="margin-top:0px;font-family:SFUITR;"><img src="img/signs/pig.png" height="20" /> {{recalc(point.points_bill)}} {{'points_money' | translate}}</h4>
+              <h4 style="margin-top:0px;font-family:SFUITR;"><img src="img/signs/points.png" height="20" /> {{point.points_points}}</h4>
+              <span ng-if="point.points_proofed == 0" class="pull-right" style="color:#888 !important;font-family:SFUITR;"><span class="statusinject cdbackyellow"></span> {{'points_awaiting' | translate}} - {{timecalc(point.points_when)}}</span>
+              <span ng-if="point.points_proofed == 1 && point.points_status == 0" class="pull-right" style="color:#888 !important;font-family:SFUITR;"><span class="statusinject cdbackgreen"></span>{{'points_confirmed' | translate}} - {{timecalc(point.points_when)}}</span>
+              <span ng-if="point.points_proofed == 1 && point.points_status == 2" class="pull-right" style="color:#888 !important;font-family:SFUITR;"><span class="statusinject cdbackgreen"></span>{{'points_confirmed' | translate}} - {{timecalc(point.points_when)}}</span>
+              <span ng-if="point.points_proofed == 1 && point.points_status == 1" class="pull-right" style="color:#888 !important;font-family:SFUITR;"><span class="statusinject cdbackred"></span>{{'points_canceled' | translate}} - {{timecalc(point.points_when)}}</span>
+              <p class="marginTop5 cd-author" style="color:#888 !important;font-family:SFUITR;">{{formatTime(point.points_time)}}</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,30 @@
+<ion-tabs class="tabs-icon-top tabs-color-active-positive bottomtabs">
+
+  <!-- Карта -->
+  <ion-tab title="{{'tabs_card' | translate}}" badge="badgeData.card" badge-style="badge-assertive" icon-off="btn_card" icon-on="btn_card_" ng-click="goCard()">
+    <ion-nav-view name="tab-card"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Меню -->
+  <ion-tab title="{{'tabs_menu' | translate}}" badge="badgeData.menue" badge-style="badge-assertive" icon-off="btn_menue" icon-on="btn_menue_" ng-click="goMenu()">
+    <ion-nav-view name="tab-menu"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Акции -->
+  <ion-tab title="{{'tabs_news' | translate}}" badge="badgeData.news" badge-style="badge-assertive" icon-off="btn_event" icon-on="btn_event_" ng-click="goNews()">
+    <ion-nav-view name="tab-news"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Контакты -->
+  <ion-tab title="{{'tabs_contact' | translate}}" badge="badgeData.maps" badge-style="badge-assertive" icon-off="btn_map" icon-on="btn_map_" ng-click="goContact()">
+    <ion-nav-view name="tab-contact-map"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Еще -->
+  <ion-tab title="{{'tabs_else' | translate}}" badge="badgeData.else" badge-style="badge-assertive" icon-off="btn_else" icon-on="btn_else_" ng-click="goElse()">
+    <ion-nav-view name="tab-else"></ion-nav-view>
+  </ion-tab>
+
+  <div id="htmlentitydecodediv" class="item row" style="display:none;">
+
+</ion-tabs>

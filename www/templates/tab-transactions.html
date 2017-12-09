@@ -1,0 +1,37 @@
+<ion-view view-title="{{'trans_title' | translate}}">
+  
+  <ion-nav-bar class="navbarbackimg">
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+
+  <ion-content>
+
+    <section id="cd-timeline" class="cd-container" style="background-color:#fff;width:100%;padding-top:20px;border-radius:20px 20px 0 0;">
+      <div class="cd-timeline-block">
+        <div class="list card flat" style="background-color:rgba(255,255,255,0);box-shadow: none;" ng-repeat="order in ordersAll | orderBy: '-order.order_start'">
+
+          <div class="cd-timeline-icon text-center" ng-class="{cdborderyellow: order.order_status == 0, cdbordergreen: order.order_status == 1 || order.order_status == 2, cdborderred: order.order_status == 3 || order.order_status == 4}">
+            <i class="ion-clock timelineIcon cdcoloryellow" ng-if="order.order_status == '0'"></i>
+            <i class="ion-checkmark timelineIcon cdcolorgreen" ng-if="order.order_status == '1'"></i>
+            <i class="ion-checkmark-round timelineIcon cdcolorgreen" ng-if="order.order_status == '2'"></i>
+            <i class="ion-close-round timelineIcon cdcolorred" ng-if="order.order_status == '3'"></i>
+            <i class="ion-close-round timelineIcon cdcolorred" ng-if="order.order_status == '4'"></i>
+          </div>
+          <div class="cd-timeline-contentnew">
+              <h4 style="margin-top:0px;">{{order.order_name}}</h4>
+              <span ng-if="order.order_status == 0" class="pull-right" style="color:#888 !important;"><span class="statusinject cdbackyellow"></span> {{'trans_awaiting' | translate}} - {{timecalc(order.order_when)}}</span>
+              <span ng-if="order.order_status == 1" class="pull-right" style="color:#888 !important;"><span class="statusinject cdbackgreen"></span>{{'trans_confirmed' | translate}} - {{timecalc(order.order_when)}}</span>
+              <span ng-if="order.order_status == 2" class="pull-right" style="color:#888 !important;"><span class="statusinject cdbackgreen"></span>{{'trans_confirmed' | translate}} - {{timecalc(order.order_when)}}</span>
+              <span ng-if="order.order_status == 3" class="pull-right" style="color:#888 !important;"><span class="statusinject cdbackred"></span>{{'trans_denied' | translate}} - {{timecalc(order.order_when)}}</span>
+              <span ng-if="order.order_status == 4" class="pull-right" style="color:#888 !important;"><span class="statusinject cdbackred"></span>{{'trans_canceled' | translate}} - {{timecalc(order.order_when)}}</span>
+              <p class="marginTop5 cd-author" style="color:#888 !important;">{{formatTime(order.order_start)}}</p>
+              <p class="timelineText" style="color:#888 !important;">{{order.order_desc}}</p>
+              <button class="button button-small button-assertive icon icon-left ion-close-circled pull-right" ng-click="beforeCancelOrder(order.order_id)" ng-if="order.order_status != 3 && order.order_status != 4">{{'trans_cancel' | translate}}</button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </ion-content>
+</ion-view>

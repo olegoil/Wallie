@@ -1,0 +1,26 @@
+<ion-modal-view class="navbarbackimg">
+  <ion-header-bar align-title="center">
+    <button class="button button-clear button-small" ng-click="closeModal(5)" style="color:#fff;">
+      <i class="icon ion-chevron-left"></i>
+    </button>
+      <h1 class="title" style="color:#fff;font-size:14px;">{{'mobile_confirm_mobile' | translate}}</h1>
+    <button class="button button-clear button-small" ng-click="smsConfirm()" style="color:#fff;">{{'mobile_confirm_next' | translate}}</button>
+  </ion-header-bar>
+
+  <ion-content class="grayback">
+
+    <div class="list">
+      <div class="item item-divider">
+        &nbsp;
+      </div>
+      <label class="item item-input">
+        <input type="text" class="mobile" placeholder="{{'mobile_confirm_confirm' | translate}}" ng-model="sms.confirmation" style="text-align: center;">
+      </label>
+    </div>
+
+    <div class="padding">
+      <h6>{{'mobile_confirm_text_1' | translate}} +{{profile.user_mob_code}}{{profile.user_mob_no_code}}. {{'mobile_confirm_text_2' | translate}} <span class="darkgreentxt" ng-click="askConfirm(1)">{{'mobile_confirm_send_again' | translate}}</span>.</h6>
+    </div>
+
+  </ion-content>
+</ion-modal-view>

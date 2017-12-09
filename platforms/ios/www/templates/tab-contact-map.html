@@ -1,0 +1,22 @@
+<ion-view view-title="">
+
+  <ion-nav-bar class="navbarbackimg mapbar">
+    <h1 class="title" style="text-align:center;">
+      <button class="button button-light darkgreentxt" ng-style="StyleL">{{'contact_map_map' | translate}}</button>
+      <button class="button button-light" ng-style="StyleR" ng-if="!showListBtn">
+        <!-- <ion-spinner icon="android" class="spinner-positive"></ion-spinner> -->
+      </button>
+      <button ng-click="goContactList()" class="button button-light" ng-style="StyleR" ng-if="showListBtn">{{'contact_map_list' | translate}}</button>
+    </h1>
+    <ion-nav-buttons side="right">
+      <div class="list">
+        <a ui-sref="cart" class="item item-icon-right" style="background-color:rgba(0, 0, 0, 0);border:none;overflow: visible;">
+          <span class="badge badge-assertive" style="top:0;font-family:SFUITR" ng-if="cartsum > 0">{{recalc(cartsum)}}</span>
+          <i class="icon btn_cart"></i>
+        </a>
+      </div>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content id="map" style="width:100%;margin-bottom:-45px;"></ion-content>
+</ion-view>

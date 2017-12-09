@@ -1,0 +1,23 @@
+<ion-view view-title="{{'order_bs_top_3' | translate}}" class="contentback">
+
+  <ion-nav-bar class="navbarbackimg">
+    <ion-nav-buttons side="left">
+      <a ng-click="goback()" class="button button-clear button-light"><i class="icon ion-chevron-left"></i></a>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+    <ion-content>
+        <div class="list">
+
+            <div class="item item-thumbnail-left item-icon-right item-text-wrap avatarhc" ui-sref="tab.entry-time({menId: menId, workId: worker.user_real_id})" ng-click="setBSWorker(worker.user_real_id, htmlEntities(worker.user_name + ' ' + worker.user_surname), worker.user_pic, htmlEntities(worker.prof_name))" ng-repeat="worker in workers" style="border-bottom:1px solid #444;">
+                <img style="border-radius: 0px !important;margin:-9px 0px 0px -9px !important;" cache-src="http://www.olegtronics.com/admin/img/user/{{institution}}/pic/{{worker.user_pic}}">
+                <h3>{{htmlEntities(worker.user_surname)}} {{htmlEntities(worker.user_name)}} {{htmlEntities(worker.user_middlename)}}</h3>
+                <p>{{htmlEntities(worker.prof_name)}}</p>
+                <i class="icon ion-compose positive"></i>
+            </div>
+
+            <p>&nbsp;</p>
+
+        </div>
+    </ion-content>
+</ion-view>

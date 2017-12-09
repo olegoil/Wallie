@@ -1,0 +1,35 @@
+<ion-view view-title="{{'shares_title' | translate}}">
+  
+  <ion-nav-bar class="navbarbackimg">
+    <ion-nav-back-button></ion-nav-back-button>
+    <ion-nav-buttons side="right">
+      <div class="list">
+        <a ui-sref="cart" class="item item-icon-right" style="background-color:rgba(0, 0, 0, 0);border:none;overflow: visible;">
+          <span class="badge badge-assertive" style="top:0;" ng-if="cartsum > 0">{{recalc(cartsum)}}</span>
+          <i class="icon btn_cart"></i>
+        </a>
+      </div>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content>
+
+    <div class="padding" style="color:#8C8C8C;background-color:#F8F8F8;text-align:left;border:0px;margin:0px;">
+      <br/>
+      <h6 style="color:#8C8C8C;font-family:SFUITR;">{{'shares_recommend' | translate}}</h6>
+    </div>
+
+    <div class="list">
+      <div ng-click="shareFacebook()" class="item item-icon-right" style="font-family:SFUITR;"> {{'shares_fb' | translate}} <i class="icon ion_fb" style="width:25px;height:25px;right:20px;top:11px;"></i></div>
+
+      <div ng-click="socialSharing()" class="item item-icon-right" style="font-family:SFUITR;"> {{'shares_vk' | translate}} <i class="icon ion_vk" style="width:25px;height:25px;right:20px;top:11px;"></i></div>
+
+      <div ng-click="shareTwitter()" class="item item-icon-right" style="font-family:SFUITR;"> {{'shares_tw' | translate}} <i class="icon ion_tw" style="width:25px;height:25px;right:20px;top:11px;"></i></div>
+
+      <div ng-click="makeInstaPic()" class="item item-icon-right" style="font-family:SFUITR;"> {{'shares_ig' | translate}} <i class="icon ion_ig" style="width:25px;height:25px;right:20px;top:11px;"></i></div>
+
+      <div ng-click="shareSMS()" class="item item-icon-right" style="font-family:SFUITR;"> {{'shares_sms' | translate}} <i class="icon ion_sms" style="width:25px;height:25px;right:20px;top:11px;"></i></div>
+    </div>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,27 @@
+<ion-view view-title="{{'purchase_title' | translate}}">
+  
+  <ion-nav-bar class="navbarbackimg">
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+
+  <ion-content class="contentback" style="top:44px;">
+
+    <section ng-if="purchases" id="cd-timeline" class="cd-container" ng-style="purchStyle">
+      <div ng-if="purchases" class="cd-timeline-block">
+        <div class="list card flat" style="background-color:rgba(255,255,255,0);box-shadow: none;" ng-repeat="purchase in purchases | orderBy: '-$index'">
+
+          <div class="cd-timeline-icon text-center" class="cdbordergreen">
+            <i class="ion-checkmark timelineIcon cdcolorgreen"></i>
+          </div>
+          <div class="cd-timeline-contentnew">
+              <h4 class="SFUITR">{{$index+1}}. {{htmlEntities(purchase.order_user_name_phone)}}</h4>
+              <h5 style="color:#888 !important;font-family:SFUITR;">{{recalc(purchase.order_bill)}} {{'purchase_money' | translate}}</h5>
+              <h5 style="color:#888 !important;font-family:SFUITR;">{{timecalc(purchase.order_when)}}</h5>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </ion-content>
+</ion-view>

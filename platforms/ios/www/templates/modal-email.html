@@ -1,0 +1,21 @@
+<ion-modal-view class="navbarbackimg">
+  <ion-header-bar align-title="center">
+    <button class="button button-clear button-small" ng-click="closeModal(3)" style="color:#fff;">
+      <i class="icon ion-chevron-left"></i>
+    </button>
+    <h1 class="title" style="color:#fff;font-size:14px;font-family:SFUITR;">{{'email_email' | translate}}</h1>
+    <button class="button button-clear button-small" ng-click="closeModal(3)" style="color:#fff;font-family:SFUITR;">{{'email_next' | translate}}</button>
+  </ion-header-bar>
+  <ion-content class="grayback">
+
+    <div class="list">
+      <div class="item item-divider">
+        &nbsp;
+      </div>
+      <label class="item">
+        <input type="text" placeholder="{{'email_enter_email' | translate}}" ng-model="profile.user_email" class="SFUITR">
+      </label>
+    </div>
+
+  </ion-content>
+</ion-modal-view>

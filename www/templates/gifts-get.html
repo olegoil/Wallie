@@ -1,0 +1,43 @@
+<ion-view view-title="{{'gifts_get_title' | translate}}">
+  
+  <ion-nav-bar class="bar-clear">
+    <ion-nav-buttons side="left">
+      <a ng-click="goback()" class="button button-clear button-icon darkgreentxt">
+        <i class="icon ion-chevron-left"></i>
+      </a>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content style="top:44px;">
+
+    <div class="row row-center" style="text-align: center;">
+      <div class="col col-center">
+
+        <h6 style="max-width:200px;margin:0 auto;font-family:SFUITR;font-size:13px;">{{'gifts_get_qr' | translate}}</h6>
+        <div class="list card" style="margin:0 auto;width:70%;border-radius: 15px;box-shadow: 5px 8px 10px rgba(0, 0, 0, 0.3);max-width:200px;">
+          <div class="item item-text-wrap">
+            <div class="row">
+              <div class="col" style="text-align: center;border-bottom:1px solid rgba(0,0,0,0.1);">
+                <qr style="margin:0 auto;text-align:center;" text="qrcodeString" type-number="typeNumber" correction-level="correctionLevel" size="size" input-mode="inputMode" image="image"></qr>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <h3 class="dark" style="font-family:SFUITR;font-size:14px;">{{gift.gifts_name}}</h3>
+                <h3 class="dark" style="font-family:SFUITR;font-size:14px;">{{'gifts_get_cost' | translate}} - <span style="color:#7ED321;"><img style="vertical-align:middle;" src="img/signs/points.png" height="20" /> {{gift.gifts_points}}</span></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <br/>
+
+        <button ng-click="reviewAsk()" class="button button-dark button-block" style="background-color:#7ED321;text-align:center;border-radius:20px;max-width: 200px;margin:0 auto;font-family:SFUITR;font-size:14px;">{{'gifts_get_ready' | translate}}</button>
+
+        <button ng-click="goback()" class="button icon-left ion-close-round button-clear button-light" style="font-family:SFUITR;font-size:17px;">{{'gifts_get_cancel' | translate}}</button>
+
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

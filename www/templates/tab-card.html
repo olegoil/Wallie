@@ -1,0 +1,34 @@
+<ion-view view-title="" class="contentback" hide-nav-bar="true">
+
+  <ion-content scroll="false">
+
+    <ion-scroll>
+
+      <div class="list">
+        <div class="item item-divider" style="height:100px;background-color:green;">
+            Total
+            <span class="item-note">
+              {{ balance }}
+            </span>
+        </div>
+      
+        <a class="item" href="#">
+          Butterfinger
+        </a>
+      </div>
+
+    </ion-scroll>
+
+    <ion-tabs class="tabs-icon-top middletabs">
+
+      <ion-tab on-select="" on-deselect="" title="{{'card_coins_menue' | translate}}" badge-style="badge-assertive" icon-on="btn_coinsmenue" icon-off="btn_coinsmenue" animation="fade-in-out" style="font-size:90%;color:#fff;" ng-click="settings()">
+      </ion-tab>
+      <ion-tab on-select="" on-deselect="" title="{{'card_coins_coinsget' | translate}}" badge-style="badge-assertive" icon-on="btn_coinsget" icon-off="btn_coinsget" animation="fade-in-out" style="font-size:90%;color:#fff;" ng-click="coinsget()">
+      </ion-tab>
+      <ion-tab on-select="" on-deselect="" title="{{'card_coins_coinssend' | translate}}" badge-style="badge-assertive" icon-on="btn_coinssend" icon-off="btn_coinssend" animation="fade-in-out" style="font-size:90%;color:#fff;" ng-click="coinssend()">
+      </ion-tab>
+
+    </ion-tabs>
+
+  </ion-content>
+</ion-view>

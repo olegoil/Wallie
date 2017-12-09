@@ -1,0 +1,71 @@
+<ion-view view-title="{{'order_summ_title' | translate}}" class="contentback">
+
+  <ion-nav-bar class="bar-clear contentbackbar">
+    <ion-nav-buttons side="left">
+      <a ng-click="goback()" class="button button-clear button-light" style="font-family:SFUITR;font-size:17px;">{{'order_summ_cancel' | translate}}</a>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <a ng-click="calcbill()" class="button button-clear button-light" style="font-family:SFUITR;font-size:17px;">{{'order_summ_next' | translate}}</a>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content style="top:44px;" scroll="false">
+    <ion-list class="list2bottom">
+      <div class="row row-center">
+        <div class="col col-center" style="text-align: center;">
+          <h6 class="light" style="max-width:200px;margin:0 auto;font-family:SFUITR;font-size:13px;">{{'order_summ_text' | translate}}</h6>
+          <h1 class="light" style="font-family:SFUIDT;font-size:40px;margin-bottom:0px;padding-bottom:0px;">{{expression}}</h1>
+          <h4 class="stable" style="font-family:SFUITR;font-size:13px;margin-top:0px;padding-top:0px;margin-top:0px;">{{'order_summ_money' | translate}}</h4>
+        </div>
+      </div>
+      <div class="summtable">
+        <div class="row">
+          <div class="col bordtop">
+          <button class="button button-clear button-block button-light button-large" ng-click="add(1)">1</button>
+          </div>
+          <div class="col bordleftrighttop">
+          <button class="button button-clear button-block button-light button-large" ng-click="add(2)">2</button>
+          </div>
+          <div class="col bordtop">
+          <button class="button button-clear button-block button-light button-large" ng-click="add(3)">3</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col bordtop">
+          <button class="button button-clear button-block button-light button-large" ng-click="add(4)">4</button>
+          </div>
+          <div class="col bordleftrighttop">
+          <button class="button button-clear button-block button-light button-large" ng-click="add(5)">5</button>
+          </div>
+          <div class="col bordtop">
+          <button class="button button-clear button-block button-light button-large" ng-click="add(6)">6</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col bordtop">
+          <button class="button button-clear button-block button-light button-large" ng-click="add(7)">7</button>
+          </div>
+          <div class="col bordleftrighttop">
+          <button class="button button-clear button-block button-light button-large" ng-click="add(8)">8</button>
+          </div>
+          <div class="col bordtop">
+          <button class="button button-clear button-block button-light button-large" ng-click="add(9)">9</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col bordtopbottom">
+           <button class="button button-clear button-block button-light button-large"></button> 
+          </div>
+          <div class="col bordleftrighttopbottom">
+          <button class="button button-clear button-block button-light button-large" ng-click="add(0)">0</button>
+          </div>
+          <div class="col bordtopbottom">
+          <button class="button button-clear button-block button-light button-large" ng-click="removeText()">
+            <i class="icon ion-backspace-outline"></i>
+          </button>
+          </div>
+        </div>
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-view>

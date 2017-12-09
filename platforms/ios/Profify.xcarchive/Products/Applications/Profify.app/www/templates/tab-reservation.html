@@ -1,0 +1,52 @@
+<ion-view view-title="{{'reservation_title' | translate}}">
+  
+  <ion-nav-bar class="navbarbackimg">
+    <ion-nav-back-button></ion-nav-back-button>
+    <ion-nav-buttons side="right">
+        <button ng-if="reservation.surname && reservation.amount && reservation.date && reservation.time && reservation.surname != 0 && reservation.amount['from'] != 'Количество гостей' && reservation.date != 'Дата' && reservation.time['from'] != 'Время'" class="button button-clear button-small" ng-click="sendReservation()" style="color:#fff;font-family:SFUITR;">{{'reservation_send' | translate}}</button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content>
+    
+    <div class="list" ng-if="showform">
+      <label class="item item-input">
+        <div class="input-label SFUITR">
+          {{'reservation_surname' | translate}}
+        </div>
+        <input type="text" placeholder="{{'reservation_surname' | translate}}" ng-model="reservation.surname" class="SFUITR">
+      </label>
+      <label class="item item-input">
+        <div class="input-label SFUITR">
+          {{'reservation_name' | translate}}
+        </div>
+        <input type="text" placeholder="{{'reservation_name' | translate}}" ng-model="reservation.name" class="SFUITR">
+      </label>
+      <label class="item item-input item-select" style="height:47px;padding-left:12px;">
+        <div class="input-label SFUITR">
+          {{'reservation_amount' | translate}}
+        </div>
+        <select style="width:100%;text-align:left;padding-left:10px;" ng-model="reservation.amount" ng-options="item.val for item in resGuest track by item.val" class="SFUITR"></select>
+      </label>
+      <label ng-click="openDatePicker()" class="item item-input">
+        <div class="input-label SFUITR">
+          {{'reservation_date' | translate}}
+        </div>
+        <span style="height:34px;font-family:SFUITR;" ng-if="reservation.date != 0 || reservation.date != ''">{{reservationdate | date:'dd.MM.yyyy'}}</span>
+      </label>
+      <label class="item item-input item-select" style="height:47px;padding-left:12px;">
+        <div class="input-label SFUITR">
+          {{'reservation_time' | translate}}
+        </div>
+        <select style="width:100%;text-align:left;padding-left:10px;" ng-model="reservation.time" ng-options="item.val for item in resTime track by item.val" class="SFUITR"></select>
+      </label>
+      <label class="item item-input">
+        <div class="input-label SFUITR">
+          {{'reservation_comment' | translate}}
+        </div>
+        <textarea class="SFUITR" placeholder="{{'reservation_comment' | translate}}" ng-model="reservation.comment" />
+      </label>
+    </div>
+
+  </ion-content>
+</ion-view>

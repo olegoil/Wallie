@@ -1,0 +1,29 @@
+<ion-view view-title="{{'order_bs_top_2' | translate}}" class="contentback">
+
+  <ion-nav-bar class="navbarbackimg">
+    <ion-nav-buttons side="left">
+      <a ng-click="goback()" class="button button-clear button-light"><i class="icon ion-chevron-left"></i></a>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button ng-if="checks" class="button greenback icon icon-right ion-edit graytxt" style="margin-right:0px;" ng-click="checkout()">{{'order_bs_go_on' | translate}}</button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+    <ion-content>
+        <div class="list">
+
+            <div ng-repeat="cat in categories" ng-class="cat.category? 'item-divider':'item list card'" ng-style="backImage(cat)">
+                <div class="item item-text-wrap" ng-click="checking(cat)" style="background-color:rgba(255,255,255,0.2);">
+                    {{htmlEntities(cat.menue_name)}}
+                    <i ng-model="cat.checked" style="font-size:30px;font-weight: bold;float:right;" class="icon ion-ios-plus-outline dark" ng-if="!cat.category && !cat.checked"></i>
+                    <i ng-model="cat.checked" style="font-size:30px;float:right;" class="icon ion-checkmark-round greentxt" ng-if="!cat.category && cat.checked"></i>
+                    <p ng-if="!cat.category"><i class="icon ion-clock greentxt"></i> {{cat.menue_interval}}</p>
+                    <p ng-if="!cat.category">{{cat.menue_desc}} <span class="rub">Р</span></p>
+                </div>
+            </div>
+
+            <p>&nbsp;</p>
+
+        </div>
+    </ion-content>
+</ion-view>

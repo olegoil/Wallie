@@ -1,0 +1,52 @@
+<ion-view view-title="">
+
+  <ion-nav-bar class="navbarbackimg mapbar">
+    <h1 class="title" style="text-align:center;">
+      <button ng-click="goContactMap()" class="button button-light mapbtn" ng-style="StyleL" style="font-family:SFUITR;">{{'contact_list_map' | translate}}</button>
+      <button class="button button-light darkgreentxt mapbtn" ng-style="StyleR" style="font-family:SFUITR;">{{'contact_list_list' | translate}}</button>
+    </h1>
+    <ion-nav-buttons side="right">
+      <div class="list">
+        <a ui-sref="cart" class="item item-icon-right" style="background-color:rgba(0, 0, 0, 0);border:none;overflow: visible;">
+          <span class="badge badge-assertive" style="top:0;font-family:SFUITR;" ng-if="cartsum > 0">{{recalc(cartsum)}}</span>
+          <i class="icon btn_cart"></i>
+        </a>
+      </div>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content style="background-color:#F8F8F8;">
+    <div id="map2" style="height:50%;width:100%;margin-bottom:-45px;"></div>
+    <ion-list show-delete="shouldShowDelete" show-reorder="shouldShowReorder" can-swipe="listCanSwipe">
+      <div ng-repeat="institution in institutions">
+        <ion-item style="border-radius: 5px;margin:10px 10px 0px 10px;border: none;" ng-click="toggleGroup(institution)" ng-class="{active: isGroupShown(institution)}" ng-hide="!isGroupShown(institution) && shownav">
+            <div class="row"><div class="col-90 item-text-wrap">{{institution.office_adress}}</div><div class="col"><small class="darkgreentxt" style="vertical-align:middle;float:right;"><img src="img/signs/navigate.png" style="vertical-align: middle;font-family:SFUITR;" height="15" /> {{institution.distance}} {{'contact_list_distance' | translate}}</small></div></div>
+            <p style="font-family:SFUITR;">
+              <span class="indicatopen" ng-if="institution.opncls == 1"></span>
+              <span class="indicatclose" ng-if="institution.opncls == 0"></span>
+              {{institution.worktime}}
+              <span ng-if="institution.opncls == 1">({{'contact_list_opened' | translate}})</span>
+              <span ng-if="institution.opncls == 0">({{'contact_list_closed' | translate}})</span>
+            </p>
+            <ion-option-button class="button-clear" ng-click="call(institution)" style="padding:20px 0;">
+              <img src="img/btn/callbtn.png" style="height:48px;margin:auto 2px;" />
+            </ion-option-button>
+        </ion-item>
+        <ion-item class="item-accordion" style="border-radius: 0 0 5px 5px;margin:0 10px;border: none;" ng-show="isGroupShown(institution)">
+          <div ng-if="worktime != '0'" class="row" ng-repeat="worktime in institution.worktimes track by $index">
+            <div class="col col-50 dark" style="font-family:SFUITR;">{{days[$index]}}</div>
+            <div class="col col-50" style="font-family:SFUITR;">{{worktime}}</div>
+          </div>
+          <div class="row">
+            <div class="col col-33" style="text-align: center;" ng-click="call(institution)"><img src="img/btn/instcall.png" height="50" /><br/><h7 class="hh7">{{'contact_list_call' | translate}}</h7></div>
+            <div class="col col-33" style="text-align: center;" onclick="window.open('mailto:please@profify.me', '_system')" target="_blank"><img src="img/btn/instwrite.png" height="50" /><br/><h7 class="hh7">{{'contact_list_email' | translate}}</h7></div>
+            <div class="col col-33" style="text-align: center;" onclick="window.open('http://www.profify.me', '_system')" target="_blank"><img src="img/btn/instcompas.png" height="50" /><br/><h7 class="hh7">{{'contact_list_site' | translate}}</h7></div>
+          </div>
+          <p style="white-space: normal;font-family:SFUITR;">
+            {{institution.office_desc}}
+          </p>
+        </ion-item>
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-view>

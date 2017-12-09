@@ -1,0 +1,46 @@
+<ion-view view-title="{{'cart_send_title' | translate}}" class="contentback">
+
+  <ion-nav-bar class="bar-clear contentbackbar">
+    <ion-nav-buttons side="left">
+      <a ng-click="goback()" class="button button-clear button-light">{{'cart_send_back' | translate}}</a>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <a ng-click="send()" class="button button-clear button-light">{{'cart_send_next' | translate}}</a>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content>
+    <div class="padding" style="text-align: center;margin-top:70px;">
+      <h3 class="light SFUITR">{{recalc(cartsum)}}</h3>
+    </div>
+    <div class="list">
+      <label class="item item-input">
+        <input type="text" placeholder="{{'cart_send_surname' | translate}}" ng-model="profile.user_surname" class="SFUITR">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="{{'cart_send_name' | translate}}" ng-model="profile.user_name" class="SFUITR">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="{{'cart_send_middlename' | translate}}" ng-model="profile.user_middlename" class="SFUITR">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="{{'cart_send_mobile' | translate}}" ng-model="profile.user_mobile" class="SFUITR">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="{{'cart_send_email' | translate}}" ng-model="profile.user_email" class="SFUITR">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="{{'cart_send_town' | translate}}" ng-model="profile.user_city" class="SFUITR">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="{{'cart_send_adress' | translate}}" ng-model="profile.user_adress" class="SFUITR">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="{{'cart_send_comment' | translate}}" ng-model="profile.comment" class="SFUITR">
+      </label>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+  </ion-content>
+</ion-view>

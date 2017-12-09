@@ -1,0 +1,27 @@
+<ion-modal-view class="navbarbackimg">
+  <ion-header-bar align-title="center">
+  
+    <button class="button button-clear button-small" ng-click="closeModal(3)" style="color:#fff;">
+    <i class="icon ion-chevron-left"></i>
+    </button>
+
+    <h1 class="title" style="color:#fff;font-size:14px;">{{'contact_title' | translate}}</h1>
+
+  </ion-header-bar>
+  <ion-content style="background-color:#F8F8F8;">
+    <ion-list>
+      <div ng-repeat="institution in institutions">
+        <ion-item style="border-radius: 5px;margin:10px 10px 0px 10px;border: none;" ng-click="takeInst(institution)">
+            <div class="row"><div class="col-85 item-text-wrap">{{institution.office_adress}}</div><div class="col"><small class="darkgreentxt" style="vertical-align:middle;float:right;"><img src="img/signs/navigate.png" style="vertical-align: middle;" height="15" /> {{institution.distance}} {{'contact_distance' | translate}}</small></div></div>
+            <p>
+              <span class="indicatopen" ng-if="institution.opncls == 1"></span>
+              <span class="indicatclose" ng-if="institution.opncls == 0"></span>
+              {{institution.worktime}}
+              <span ng-if="institution.opncls == 1">({{'contact_opened' | translate}})</span>
+              <span ng-if="institution.opncls == 0">({{'contact_closed' | translate}})</span>
+            </p>
+        </ion-item>
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-modal-view>
