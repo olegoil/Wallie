@@ -159,7 +159,7 @@ angular.module('starter.controllers', [])
 
     var wif = golos.auth.toWif($rootScope.golos_login, $rootScope.golos_pwd, "active");
 
-    console.log(""+(($scope.getamount/13000).toFixed(3))+" GOLOSBTC  "+($scope.getamount*5)+".000 GOLOS  "+$scope.getamount+".000 WALLIEUSDT");
+    // console.log(""+(($scope.getamount/13000).toFixed(3))+" GOLOSBTC  "+($scope.getamount*5)+".000 GOLOS  "+$scope.getamount+".000 WALLIEUSDT");
     if($scope.currency == 'GOLOS') {
       golos.broadcast.limitOrderCreate(wif, "wallie-test", Math.round(new Date().getTime()/1000), ""+($scope.getamount*5)+".000 GOLOS", ""+$scope.getamount+".000 WALLIEUSDT", false, "2106-02-07T06:28:15", function(err, result) {
         $timeout(function() {
@@ -218,7 +218,7 @@ angular.module('starter.controllers', [])
       $scope.oModalRequest.hide();
       chatInter = $timeout(function () {
         $scope.checkMessages();
-      }, 3000);
+      }, 100);
     }
   };
 
@@ -421,7 +421,7 @@ angular.module('starter.controllers', [])
       $scope.oModalRequest.hide();
       chatInter = $timeout(function () {
         $scope.checkMessages();
-      }, 3000);
+      }, 100);
     }
   };
 
@@ -655,7 +655,7 @@ angular.module('starter.controllers', [])
       $scope.oModalRequest.hide();
       chatInter = $timeout(function () {
         $scope.checkMessages();
-      }, 3000);
+      }, 100);
     }
   };
 
@@ -839,7 +839,7 @@ angular.module('starter.controllers', [])
       $scope.oModalRequest.hide();
       chatInter = $timeout(function () {
         $scope.checkMessages();
-      }, 3000);
+      }, 100);
     }
   };
 

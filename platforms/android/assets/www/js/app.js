@@ -22,7 +22,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
     $rootScope.user_id = 1;
     $rootScope.golos_login = 'wallie-test';
-    $rootScope.golos_pwd = 'XXX';
+    $rootScope.golos_pwd = 'P5KSwfHifcPfyrXquAm68vQpk2skn8NrsM88he4S54i5akpKmXJQ';
 
     $ionicLoading.show({
       template: '<ion-spinner icon="android" class="spinner-positive"></ion-spinner>',
