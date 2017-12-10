@@ -1,12 +1,35 @@
 <ion-view hide-nav-bar="true">
   <ion-content class="contentbackmenus">
-    
-    <div class="list">
-        
-      <a class="item" ng-click="sendMoney()">
-        Send Golos
-      </a>
-    </div>
+  
 
+      <div class="list card" style="margin:0 auto;width:70%;border-radius: 15px;box-shadow: 5px 8px 10px rgba(0, 0, 0, 0.3);max-width: 200px;">
+        <div class="item item-text-wrap">
+          <div class="row">
+            <div class="col" style="text-align: center;border-bottom:1px solid rgba(0,0,0,0.1);">
+              <qr style="margin:0 auto;text-align:center;" text="qrcodeString" type-number="typeNumber" correction-level="correctionLevel" size="size" input-mode="inputMode" image="image"></qr>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <h1 class="darkgreentxt" style="font-family:SFUITL;font-size:36px;text-align:center;">{{ getamount }}</h1>
+              <h3 class="dark" style="font-family:SFUITR;font-size:20px;text-align:center;">{{ currency }}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="list" ng-if="currencies">
+        <ion-radio ng-repeat="curr in currencies" ng-value="curr.bal_currency" ng-click="changeData(curr.bal_currency)">{{ curr.bal_currency }} {{ curr.bal_balance }}</ion-radio>
+      </div>
+      <div class="list">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Your wallet number</span>
+          <input type="text" ng-model="golos_login" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Enter the ammount here</span>
+          <input type="number" ng-model="getamount" ng-keyup="changeData2()"/>
+        </label>
+      </div>
+    
   </ion-content>
 </ion-view>

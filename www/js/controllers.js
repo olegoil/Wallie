@@ -193,7 +193,26 @@ angular.module('starter.controllers', [])
   $scope.payrequest = [];
   $scope.paysend = [];
   $scope.currencies = [];
+  $scope.currency = 'WALLIEUSDT';
+  $scope.getamount = '';
   var jsonedstr = [];
+  $scope.golos_login = $rootScope.golos_login;
+
+  $scope.qrcodeString = $rootScope.golos_login+' '+$scope.currency+' '+$scope.getamount;
+  $scope.size = 150;
+  $scope.correctionLevel = '';
+  $scope.typeNumber = 0;
+  $scope.inputMode = '';
+  $scope.image = false;
+
+  $scope.changeData = function(curr) {
+    $scope.currency = curr;
+    $scope.qrcodeString = $rootScope.golos_login+' '+curr+' '+$scope.getamount;
+  }
+
+  $scope.changeData2 = function() {
+    $scope.qrcodeString = $rootScope.golos_login+' '+$scope.currency+' '+$scope.getamount;
+  }
 
   $scope.$on('$ionicView.enter', function() {
 
@@ -370,13 +389,16 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('CoinssendCtrl', function($ionicPlatform, $rootScope, $scope, $state, $stateParams, $ionicHistory, $ionicModal, $ionicPopup, $timeout, $translate, $http) {
+.controller('CoinssendCtrl', function($ionicPlatform, $rootScope, $scope, $state, $stateParams, $ionicHistory, $ionicModal, $ionicPopup, $timeout, $translate, $http, $cordovaBarcodeScanner) {
   
   $scope.balance = 0;
   $scope.payrequest = [];
   $scope.paysend = [];
   $scope.currencies = [];
   var jsonedstr = [];
+  $scope.currency = 'WALLIEUSDT';
+  $scope.getamount = '';
+  $scope.sendadress = "wallie";
 
   $scope.$on('$ionicView.enter', function() {
 
@@ -419,6 +441,10 @@ angular.module('starter.controllers', [])
     });
 
   });
+
+  $scope.changeData = function(curr) {
+    $scope.currency = curr;
+  }
 
   $scope.balanceRequest = function() {
     golos.api.getAccountBalances('wallie-test', [], function(err, response) {
@@ -506,11 +532,41 @@ angular.module('starter.controllers', [])
 
   $scope.sendMoney = function() {
     var wif = golos.auth.toWif($rootScope.golos_login, $rootScope.golos_pwd, "active");
-    golos.broadcast.transfer(wif, $rootScope.golos_login, "wallie", "1.000 WALLIEUSDT", "", function(err, result) {
+    golos.broadcast.transfer(wif, $rootScope.golos_login, $scope.sendadress, ($scope.getamount).toFixed(3)+' '+$scope.currency, "", function(err, result) {
       $scope.closeModal(1);
       // alert(JSON.stringify(err));
       // alert(JSON.stringify(result));
     });
+  }
+
+  $scope.scanning = function() {
+    
+    $cordovaBarcodeScanner.scan().then(function(barcodeData) {
+
+      var barCode = barcodeData.text.toString();
+
+      alert(barCode+' | '+$scope.getamount+' | '+$scope.currency)
+
+    }, 
+    function(error) {
+
+      var errPopup = $ionicPopup.alert({
+        title: 'ERRoR',
+        template: 'ERROR',
+        scope: $scope,
+        buttons: [
+          {
+            text: 'Ok',
+            type: 'button-full button-clear darkgreentxt',
+            onTap: function(e) {
+                errPopup.close();
+            }
+          }
+        ]
+      });
+
+    });
+
   }
 
   $ionicModal.fromTemplateUrl('templates/paymentrequest.html', {

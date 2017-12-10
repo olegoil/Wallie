@@ -7,7 +7,7 @@
       <h6 style="color:#8C8C8C;" class="item item-divider item-text-wrap" ng-if="payreq.buy_price != 0 && payreq.buy_price">{{ payreq.buy_price }} $</h6>
     </div>
     <ion-list>
-      <ion-radio ng-repeat="curr in currencies" ng-model="paysend" ng-value="">{{ curr.bal_balance }} {{ curr.bal_currency }}</ion-radio>
+      <ion-radio ng-repeat="curr in currencies" ng-model="paysend" ng-value="curr.bal_currency">{{ curr.bal_balance }} {{ curr.bal_currency }}</ion-radio>
     </ion-list>
 
     <button class="button button-assertive" ng-click="closeModal(1)">Cancel</button>

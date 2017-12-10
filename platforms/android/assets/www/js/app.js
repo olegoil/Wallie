@@ -39,7 +39,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         
         $ionicLoading.hide().then(function() {
           if(suc.data[0].request) {
-            $cordovaSplashscreen.hide();
+            // $cordovaSplashscreen.hide();
             // console.log(suc.data[0].request)
             $state.go('card');
           }
