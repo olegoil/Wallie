@@ -1,7 +1,7 @@
 <ion-view hide-nav-bar="true">
   <ion-content class="contentbackmenus">
   
-
+    <ion-scroll>
       <div class="list card" style="margin:0 auto;width:70%;border-radius: 15px;box-shadow: 5px 8px 10px rgba(0, 0, 0, 0.3);max-width: 200px;">
         <div class="item item-text-wrap">
           <div class="row">
@@ -23,13 +23,17 @@
       <div class="list">
         <label class="item item-input item-stacked-label">
           <span class="input-label">Your wallet number</span>
-          <input type="text" ng-model="golos_login" disabled>
+          <input type="text" ng-model="$parent.golos_login" disabled>
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Enter the ammount here</span>
-          <input type="number" ng-model="getamount" ng-keyup="changeData2()"/>
+          <input type="number" ng-model="$parent.getamount" ng-change="changes()"/>
         </label>
       </div>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+    </ion-scroll>
     
   </ion-content>
 </ion-view>

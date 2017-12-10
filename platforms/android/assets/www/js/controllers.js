@@ -11,6 +11,9 @@ angular.module('starter.controllers', [])
   $scope.paysend = [];
   $scope.currencies = [];
   var jsonedstr = [];
+  $scope.currency = 'WALLIEUSDT';
+  $scope.getamount = 1;
+  $scope.sendadress = 'wallie';
 
   $scope.$on('$ionicView.enter', function() {
 
@@ -48,7 +51,7 @@ angular.module('starter.controllers', [])
         getinfo: '1'
       });
 
-      $scope.checkMessages();
+      // $scope.checkMessages();
 
     });
 
@@ -72,7 +75,9 @@ angular.module('starter.controllers', [])
       if(suc) {
         if(suc.data.length > 0) {
           if(suc.data[0].payrequest.id > 0) {
+            $scope.payrequest = [];
             $scope.payrequest.push(suc.data[0].payrequest);
+            $scope.getamount = suc.data[0].payrequest.buy_price;
             $scope.openModal(1);
           }
           else if(suc.data[0].wallet_total) {
@@ -138,13 +143,57 @@ angular.module('starter.controllers', [])
     $state.go('settings');
   }
 
+  $scope.changeData = function(curr) {
+    $scope.currency = curr;
+  }
+
   $scope.sendMoney = function() {
+
+    // golos.broadcast.limitOrderCreate(wif, "wallie-test", Math.round(new Date().getTime()/1000), "1.000 GOLOSETH", "400.000 WALLIEUSDT", false, "2106-02-07T06:28:15", console.log);     
+    
+    // golos.broadcast.limitOrderCreate(wif, "wallie-test", Math.round(new Date().getTime()/1000), "1.000 GOLOSBTC", "13000.000 WALLIEUSDT", false, "2106-02-07T06:28:15", console.log);   
+    
+    // golos.broadcast.limitOrderCreate(wif, "wallie-test", Math.round(new Date().getTime()/1000), "1.000 GOLOS", "0.200 WALLIEUSDT", false, "2106-02-07T06:28:15", console.log);          
+                                                                                                                                                                                        
+    // golos.broadcast.transfer(wif, "wallie-test", "wallie", "4000.000 WALLIEUSDT", "", console.log);
+
     var wif = golos.auth.toWif($rootScope.golos_login, $rootScope.golos_pwd, "active");
-    golos.broadcast.transfer(wif, $rootScope.golos_login, "wallie", "1.000 WALLIEUSDT", "", function(err, result) {
-      $scope.closeModal(1);
-      // alert(JSON.stringify(err));
-      // alert(JSON.stringify(result));
-    });
+
+    console.log(""+(($scope.getamount/13000).toFixed(3))+" GOLOSBTC  "+($scope.getamount*5)+".000 GOLOS  "+$scope.getamount+".000 WALLIEUSDT");
+    if($scope.currency == 'GOLOS') {
+      golos.broadcast.limitOrderCreate(wif, "wallie-test", Math.round(new Date().getTime()/1000), ""+($scope.getamount*5)+".000 GOLOS", ""+$scope.getamount+".000 WALLIEUSDT", false, "2106-02-07T06:28:15", function(err, result) {
+        $timeout(function() {
+          golos.broadcast.transfer(wif, $rootScope.golos_login, $scope.sendadress, ''+$scope.getamount+'.000 WALLIEUSDT', "", function(err, result) {
+            $scope.closeModal(1);
+          });
+        }, 1000);
+      });
+      
+    }
+    else if($scope.currency == 'GOLOSBTC') {
+      golos.broadcast.limitOrderCreate(wif, "wallie-test", Math.round(new Date().getTime()/1000), ""+(($scope.getamount/13000).toFixed(3))+" GOLOSBTC", ""+$scope.getamount+".000 WALLIEUSDT", false, "2106-02-07T06:28:15", function(err, result) {
+        $timeout(function() {
+          golos.broadcast.transfer(wif, $rootScope.golos_login, $scope.sendadress, ''+$scope.getamount+'.000 WALLIEUSDT', "", function(err, result) {
+            $scope.closeModal(1);
+          });
+        }, 1000);
+      });
+    }
+    else if($scope.currency == 'GOLOSETH') {
+      golos.broadcast.limitOrderCreate(wif, "wallie-test", Math.round(new Date().getTime()/1000), ""+(($scope.getamount/400).toFixed(3))+" GOLOSETH", ""+$scope.getamount+".000 WALLIEUSDT", false, "2106-02-07T06:28:15", function(err, result) {
+        $timeout(function() {
+          golos.broadcast.transfer(wif, $rootScope.golos_login, $scope.sendadress, ''+$scope.getamount+'.000 WALLIEUSDT', "", function(err, result) {
+            $scope.closeModal(1);
+          });
+        }, 1000);
+      });
+    }
+    else if($scope.currency == 'WALLIEUSDT') {
+      golos.broadcast.transfer(wif, $rootScope.golos_login, $scope.sendadress, ''+$scope.getamount+'.000 WALLIEUSDT', "", function(err, result) {
+        $scope.closeModal(1);
+      });
+    }
+
   }
 
   $ionicModal.fromTemplateUrl('templates/paymentrequest.html', {
@@ -194,7 +243,7 @@ angular.module('starter.controllers', [])
   $scope.paysend = [];
   $scope.currencies = [];
   $scope.currency = 'WALLIEUSDT';
-  $scope.getamount = '';
+  $scope.getamount = 1;
   var jsonedstr = [];
   $scope.golos_login = $rootScope.golos_login;
 
@@ -205,13 +254,13 @@ angular.module('starter.controllers', [])
   $scope.inputMode = '';
   $scope.image = false;
 
-  $scope.changeData = function(curr) {
-    $scope.currency = curr;
-    $scope.qrcodeString = $rootScope.golos_login+' '+curr+' '+$scope.getamount;
+  $scope.changes = function() {
+    $scope.qrcodeString = $scope.golos_login+' '+$scope.currency+' '+$scope.getamount;
+    // console.log($scope.qrcodeString)
   }
 
-  $scope.changeData2 = function() {
-    $scope.qrcodeString = $rootScope.golos_login+' '+$scope.currency+' '+$scope.getamount;
+  $scope.changeData = function(curr) {
+    $scope.currency = curr;
   }
 
   $scope.$on('$ionicView.enter', function() {
@@ -274,6 +323,7 @@ angular.module('starter.controllers', [])
       if(suc) {
         if(suc.data.length > 0) {
           if(suc.data[0].payrequest.id > 0) {
+            $scope.payrequest = [];
             $scope.payrequest.push(suc.data[0].payrequest);
             $scope.openModal(1);
           }
@@ -395,9 +445,23 @@ angular.module('starter.controllers', [])
   $scope.payrequest = [];
   $scope.paysend = [];
   $scope.currencies = [];
-  var jsonedstr = [];
   $scope.currency = 'WALLIEUSDT';
-  $scope.getamount = '';
+  $scope.getamount = 1;
+  var jsonedstr = [];
+  $scope.golos_login = $rootScope.golos_login;
+  $scope.sendadress = 'wallie';
+
+  $scope.qrcodeString = $rootScope.golos_login+' '+$scope.currency+' '+$scope.getamount;
+  $scope.size = 150;
+  $scope.correctionLevel = '';
+  $scope.typeNumber = 0;
+  $scope.inputMode = '';
+  $scope.image = false;
+
+  $scope.changes = function() {
+    $scope.qrcodeString = $rootScope.golos_login+' '+$scope.currency+' '+$scope.getamount+' '+$scope.sendadress;
+    console.log($scope.qrcodeString)
+  }
 
   $scope.$on('$ionicView.enter', function() {
 
@@ -441,10 +505,6 @@ angular.module('starter.controllers', [])
 
   });
 
-  $scope.changeData = function(curr) {
-    $scope.currency = curr;
-  }
-
   $scope.balanceRequest = function() {
     golos.api.getAccountBalances('wallie-test', [], function(err, response) {
       $scope.currencies = [];
@@ -463,6 +523,7 @@ angular.module('starter.controllers', [])
       if(suc) {
         if(suc.data.length > 0) {
           if(suc.data[0].payrequest.id > 0) {
+            $scope.payrequest = [];
             $scope.payrequest.push(suc.data[0].payrequest);
             $scope.openModal(1);
           }
@@ -529,9 +590,13 @@ angular.module('starter.controllers', [])
     $state.go('settings');
   }
 
+  $scope.changeData = function(curr) {
+    $scope.currency = curr;
+  }
+
   $scope.sendMoney = function() {
     var wif = golos.auth.toWif($rootScope.golos_login, $rootScope.golos_pwd, "active");
-    golos.broadcast.transfer(wif, $rootScope.golos_login, "wallie", ($scope.getamount).toFixed(3)+' '+$scope.currency, "", function(err, result) {
+    golos.broadcast.transfer(wif, $rootScope.golos_login, $scope.sendadress, ''+$scope.getamount+'.000 '+$scope.currency, "", function(err, result) {
       $scope.closeModal(1);
       // alert(JSON.stringify(err));
       // alert(JSON.stringify(result));
@@ -542,9 +607,9 @@ angular.module('starter.controllers', [])
     
     $cordovaBarcodeScanner.scan().then(function(barcodeData) {
 
-      var barCode = barcodeData.text.toString();
+      // var barCode = barcodeData.text.toString();
 
-      alert(barCode+' | '+$scope.getamount+' | '+$scope.currency)
+      $scope.sendMoney();
 
     }, 
     function(error) {
@@ -676,6 +741,7 @@ angular.module('starter.controllers', [])
       if(suc) {
         if(suc.data.length > 0) {
           if(suc.data[0].payrequest.id > 0) {
+            $scope.payrequest = [];
             $scope.payrequest.push(suc.data[0].payrequest);
             $scope.openModal(1);
           }

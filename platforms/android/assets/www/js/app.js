@@ -22,7 +22,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
     $rootScope.user_id = 1;
     $rootScope.golos_login = 'wallie-test';
-    $rootScope.golos_pwd = 'P5KSwfHifcPfyrXquAm68vQpk2skn8NrsM88he4S54i5akpKmXJQ';
+    $rootScope.golos_pwd = 'XXX';
 
     $ionicLoading.show({
       template: '<ion-spinner icon="android" class="spinner-positive"></ion-spinner>',
@@ -39,7 +39,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         
         $ionicLoading.hide().then(function() {
           if(suc.data[0].request) {
-            // $cordovaSplashscreen.hide();
+            $cordovaSplashscreen.hide();
             // console.log(suc.data[0].request)
             $state.go('card');
           }

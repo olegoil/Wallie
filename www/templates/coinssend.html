@@ -14,7 +14,7 @@
           <span class="input-label">Enter the receiver here</span>
           <div class="row">
             <div class="col">
-              <input type="number" ng-model="sendadress" />
+              <input type="text" ng-model="$parent.sendadress" ng-change="changes()"/>
             </div>
             <div class="col col-10">
               <i class="icon ion-ios-barcode-outline" ng-click="scanning()"></i>
@@ -22,9 +22,14 @@
           </div>
         </label>
         <label class="item item-input item-stacked-label">
-          <span class="input-label">Enter the ammount here</span>
-          <input type="number" ng-model="getamount" ng-keyup="changeData2()"/>
+          <div class="row">
+            <div class="col col-90">
+              <span class="input-label">Enter the ammount here</span>
+              <input type="number" ng-model="$parent.getamount" ng-change="changes()"/>
+            </div>
+          </div>
         </label>
+        <button class="button button-assertive" ng-click="sendMoney()">Send</button>
       </div>
       <p>&nbsp;</p>
       <p>&nbsp;</p>

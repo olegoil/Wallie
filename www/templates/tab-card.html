@@ -5,11 +5,11 @@
     <ion-scroll>
 
       <div class="list">
-        <div class="item item-divider" style="height:100px;background-color:green;" ng-click="fctRequest()">
-          Total
-          <span class="item-note">
-            {{ balance }}
-          </span>
+
+        <div class="list card" style="margin:0 auto;width:100%;border-radius: 15px;box-shadow: 5px 8px 10px rgba(0, 0, 0, 0.3);" ng-click="fctRequest()">
+          <div class="item item-image">
+            <img src="img/logo.jpg">
+          </div>
         </div>
         
         <ion-item ng-repeat="curr in currencies" ng-model="paysend" ng-value="">{{ curr.bal_currency }} {{ curr.bal_balance }}</ion-item>

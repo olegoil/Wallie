@@ -4,7 +4,6 @@
   "description": "CompanyApp: An Ionic project",
   "dependencies": {
     "cordova-android": "^6.2.3",
-    "cordova-ios": "^4.4.0",
     "cordova-plugin-android-permissions": "^1.0.0",
     "cordova-plugin-fetch": "git+https://github.com/aporat/cordova-plugin-fetch.git",
     "golos-js": "^0.5.29",
@@ -42,8 +41,7 @@
   ],
   "cordova": {
     "platforms": [
-      "android",
-      "ios"
+      "android"
     ],
     "plugins": {
       "cordova-plugin-android-permissions": {},
