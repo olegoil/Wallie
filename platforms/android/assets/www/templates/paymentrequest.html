@@ -1,0 +1,17 @@
+<ion-modal-view hide-nav-bar="true">
+  <ion-content class="grayback">
+
+    <div class="padding" style="background-color:#F8F8F8;text-align:left;border:0px;margin:0px;" ng-repeat="payreq in payrequest">
+      <h4 class="item item-text-wrap darkgreentxt" ng-if="payreq.shop_name != 0 && payreq.shop_name">{{payreq.shop_name}}</h4>
+      <br/>
+      <h6 style="color:#8C8C8C;" class="item item-divider item-text-wrap" ng-if="payreq.buy_price != 0 && payreq.buy_price">{{ payreq.buy_price }} $</h6>
+    </div>
+    <ion-list>
+      <ion-radio ng-repeat="curr in currencies" ng-model="paysend" ng-value="">{{ curr.bal_balance }} {{ curr.bal_currency }}</ion-radio>
+    </ion-list>
+
+    <button class="button button-assertive" ng-click="closeModal(1)">Cancel</button>
+    <button class="button button-balanced" ng-click="sendMoney()">Pay</button>
+
+  </ion-content>
+</ion-modal-view>

@@ -21,6 +21,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     $rootScope.generalscript = 'http://www.olegtronics.com/wallie/test.php';
 
     $rootScope.user_id = 1;
+    $rootScope.golos_login = 'wallie-test';
+    $rootScope.golos_pwd = 'P5KSwfHifcPfyrXquAm68vQpk2skn8NrsM88he4S54i5akpKmXJQ';
 
     $ionicLoading.show({
       template: '<ion-spinner icon="android" class="spinner-positive"></ion-spinner>',
@@ -71,391 +73,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
   $stateProvider
 
-  // setup an abstract state for the tabs directive
-  .state('tab', {
-    cache: false,
-    url: '/tab',
-    abstract: true,
-    templateUrl: 'templates/tabs.html',
-    controller: 'TabCtrl'
-  })
-
-  // Each tab has its own nav history stack:
-
-  .state('tab.card', {
-    cache: false,
-    url: '/card',
-    views: {
-      'tab-card': {
-        templateUrl: 'templates/tab-card.html',
-        controller: 'CardCtrl'
-      }
-    }
-  })
-
-  .state('tab.menu-cats', {
-    cache: false,
-    url: '/menu-cats',
-    views: {
-      'tab-menu': {
-        templateUrl: 'templates/tab-menu-cats.html',
-        controller: 'MenuCatsCtrl'
-      }
-    }
-  })
-
-  .state('tab.menu', {
-    cache: false,
-    url: '/menu/:menuCat',
-    views: {
-      'tab-menu': {
-        templateUrl: 'templates/tab-menu.html',
-        controller: 'MenuCtrl'
-      }
-    }
-  })
-    
-  .state('tab.menu-detail', {
-    cache: false,
-    url: '/menu/:menuId',
-    views: {
-      'tab-menu': {
-        templateUrl: 'templates/tab-menu-detail.html',
-        controller: 'MenuDetailCtrl'
-      }
-    }
-  })
-
-  .state('tab.news', {
-    cache: false,
-    url: '/news',
-    views: {
-      'tab-news': {
-        templateUrl: 'templates/tab-news.html',
-        controller: 'NewsCtrl'
-      }
-    }
-  })
-
-  .state('tab.news-detail', {
-    cache: false,
-    url: '/news/:newsId',
-    views: {
-      'tab-news': {
-        templateUrl: 'templates/tab-news-detail.html',
-        controller: 'NewsDetailCtrl'
-      }
-    }
-  })
-
-  .state('tab.contact-map', {
-    // cache: false,
-    url: '/contact-map',
-    views: {
-      'tab-contact-map': {
-        templateUrl: 'templates/tab-contact-map.html',
-        controller: 'ContactMapCtrl'
-      }
-    }
-  })
-
-  .state('tab.contact-list', {
-    // cache: false,
-    url: '/contact-list',
-    views: {
-      'tab-contact-map': {
-        templateUrl: 'templates/tab-contact-list.html',
-        controller: 'ContactListCtrl'
-      }
-    }
-  })
-
-  .state('tab.else', {
-    cache: false,
-    url: '/else',
-    views: {
-      'tab-else': {
-        templateUrl: 'templates/tab-else.html',
-        controller: 'ElseCtrl'
-      }
-    }
-  })
-
-  .state('tab.gifts', {
-    cache: false,
-    url: '/gifts',
-    views: {
-      'tab-card': {
-        templateUrl: 'templates/tab-gifts.html',
-        controller: 'GiftsCtrl'
-      }
-    }
-  })
-
-  .state('tab.gifts-detail', {
-    cache: false,
-    url: '/gifts/:giftId',
-    views: {
-      'tab-card': {
-        templateUrl: 'templates/tab-gifts-detail.html',
-        controller: 'GiftsDetailCtrl'
-      }
-    }
-  })
-
-  .state('tab.groups', {
-    cache: false,
-    url: '/groups',
-    views: {
-      'tab-card': {
-        templateUrl: 'templates/tab-groups.html',
-        controller: 'GroupsCtrl'
-      }
-    }
-  })
-
-  .state('tab.shares', {
-    cache: false,
-    url: '/shares',
-    views: {
-      'tab-card': {
-        templateUrl: 'templates/tab-shares.html',
-        controller: 'SharesCtrl'
-      }
-    }
-  })
-
-  .state('tab.share', {
-    cache: false,
-    url: '/share',
-    views: {
-      'tab-else': {
-        templateUrl: 'templates/tab-shares.html',
-        controller: 'SharesCtrl'
-      }
-    }
-  })
-
-  .state('tab.support', {
-    cache: false,
-    url: '/support',
-    views: {
-      'tab-else': {
-        templateUrl: 'templates/tab-support.html',
-        controller: 'SupportCtrl'
-      }
-    }
-  })
-
-  .state('tab.support-details', {
-    cache: false,
-    url: '/support-details/:supportId',
-    views: {
-      'tab-else': {
-        templateUrl: 'templates/tab-support-details.html',
-        controller: 'SupportDetailsCtrl'
-      }
-    }
-  })
-
-  .state('tab.promo', {
-    cache: false,
-    url: '/promo',
-    views: {
-      'tab-card': {
-        templateUrl: 'templates/tab-promo.html',
-        controller: 'PromoCtrl'
-      }
-    }
-  })
-
-  .state('tab.about', {
-    cache: false,
-    url: '/about',
-    views: {
-      'tab-else': {
-        templateUrl: 'templates/tab-about.html',
-        controller: 'AboutCtrl'
-      }
-    }
-  })
-
-  .state('tab.about-us', {
-    cache: false,
-    url: '/about-us',
-    views: {
-      'tab-else': {
-        templateUrl: 'templates/tab-about-us.html',
-        controller: 'AboutUsCtrl'
-      }
-    }
-  })
-
-  .state('tab.reservation', {
-    cache: false,
-    url: '/reservation',
-    views: {
-      'tab-else': {
-        templateUrl: 'templates/tab-reservation.html',
-        controller: 'ReservationCtrl'
-      }
-    }
-  })
-
-  .state('tab.entry-category', {
-      url: '/entry-category',
-      views: {
-          'tab-else': {
-              templateUrl: 'templates/tab-entry-category.html',
-              controller: 'EntryCatCtrl'
-          }
-      }
-  })
-
-  .state('tab.entry-start', {
-      url: '/entry-start/:catId/:goodId',
-      views: {
-          'tab-else': {
-              templateUrl: 'templates/tab-entry-start.html',
-              controller: 'EntryStartCtrl'
-          }
-      }
-  })
-
-  .state('tab.entry-worker', {
-      url: '/entry-worker/:menId',
-      views: {
-          'tab-else': {
-              templateUrl: 'templates/tab-entry-worker.html',
-              controller: 'EntryWorkerCtrl'
-          }
-      }
-  })
-
-  .state('tab.entry-time', {
-      url: '/entry-time/:menId/:workId',
-      views: {
-          'tab-else': {
-              templateUrl: 'templates/tab-entry-time.html',
-              controller: 'EntryTimeCtrl'
-          }
-      }
-  })
-
-  .state('tab.entry', {
-      url: '/entry/:menId/:workId/:orderHour',
-      views: {
-          'tab-else': {
-              templateUrl: 'templates/tab-entry.html',
-              controller: 'EntryCtrl'
-          }
-      }
-  })
-
-  .state('tab.fifthgift', {
-    cache: false,
-    url: '/fifthgift',
-    views: {
-      'tab-else': {
-        templateUrl: 'templates/tab-fifthgift.html',
-        controller: 'FifthGiftCtrl'
-      }
-    }
-  })
-
-  .state('tab.points', {
-    cache: false,
-    url: '/points',
-    views: {
-      'tab-else': {
-        templateUrl: 'templates/tab-points.html',
-        controller: 'PointsCtrl'
-      }
-    }
-  })
-
-  .state('tab.purchase', {
-    cache: false,
-    url: '/purchase',
-    views: {
-      'tab-else': {
-        templateUrl: 'templates/tab-purchase.html',
-        controller: 'PurchaseCtrl'
-      }
-    }
-  })
-
-  .state('tab.profile', {
-    cache: false,
-    url: '/profile',
-    views: {
-      'tab-else': {
-        templateUrl: 'templates/tab-profile.html',
-        controller: 'ProfileCtrl'
-      }
-    }
-  })
-
-  .state('tab.transactions', {
-    cache: false,
-    url: '/transactions',
-    views: {
-      'tab-else': {
-        templateUrl: 'templates/tab-transactions.html',
-        controller: 'TransactionsCtrl'
-      }
-    }
-  })
-
-  .state('profile-edit', {
-    cache: false,
-    url: '/profile-edit',
-    templateUrl: 'templates/profile-edit.html',
-    controller: 'ProfileEditCtrl'
-  })
-
-  .state('support-chat', {
-    cache: false,
-    url: '/support-chat',
-    templateUrl: 'templates/support-chat.html',
-    controller: 'SupportChatCtrl'
-  })
-
-  .state('gifts-get', {
-    cache: false,
-    url: '/gifts-get/:giftId',
-    templateUrl: 'templates/gifts-get.html',
-    controller: 'GiftsGetCtrl'
-  })
-
-  .state('order-summ', {
-    cache: false,
-    url: '/order-summ',
-    templateUrl: 'templates/order-summ.html',
-    controller: 'OrderSummCtrl'
-  })
-
-  .state('order-qr', {
-    cache: false,
-    url: '/order-qr',
-    templateUrl: 'templates/order-qr.html',
-    controller: 'OrderQRCtrl'
-  })
-
-  .state('cart', {
-    cache: false,
-    url: '/cart',
-    templateUrl: 'templates/tab-cart.html',
-    controller: 'CartCtrl'
-  })
-
-  .state('cart-send', {
-    cache: false,
-    url: '/cart-send',
-    templateUrl: 'templates/cart-send.html',
-    controller: 'CartSendCtrl'
-  })
-
   .state('login', {
     cache: false,
     url: '/login',
@@ -463,7 +80,26 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     controller: 'LoginCtrl'
   })
 
+  .state('settings', {
+    cache: false,
+    url: '/settings',
+    templateUrl: 'templates/settings.html',
+    controller: 'SettingsCtrl'
+  })
 
+  .state('coinsget', {
+    cache: false,
+    url: '/coinsget',
+    templateUrl: 'templates/coinsget.html',
+    controller: 'CoinsgetCtrl'
+  })
+
+  .state('coinssend', {
+    cache: false,
+    url: '/coinssend',
+    templateUrl: 'templates/coinssend.html',
+    controller: 'CoinssendCtrl'
+  })
 
   .state('card', {
     cache: false,

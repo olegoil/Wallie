@@ -27,8 +27,6 @@
     -->
     <script src="js/whatwg-fetch/fetch.js"></script>
     <script src="js/promise-polyfill/promise.js"></script>
-
-    <script src="js/golos-js/golos.min.js"></script>
     
     <script>
 
@@ -40,23 +38,11 @@
       };
       window.fetch = fetch;
 
-      golos.config.set('websocket','wss://ws.testnet.golos.io');
-      golos.config.set('address_prefix','GLS');
-      golos.config.set('chain_id','5876894a41e6361bde2e73278f07340f2eb8b41c2facd29099de9deef6cdb679');
-      // golos.api.getAccounts(['wallie','wallie2'], function(err, response){
-      //             console.log(JSON.stringify(err));
-      //             console.log(JSON.stringify(response));
-      // });
-      var wif = golos.auth.toWif("wallie", "P5J2ZkEEoWQHrfaawJhAqgfgsjQR1cLe1TqLFEFhhbUNHaF5XBzh", "active");
-      golos.broadcast.transfer(wif, "wallie", "wallie2", "1.000 TESTTESTTESTA", "", function(err, result) {
-        alert(JSON.stringify(err));
-        alert(JSON.stringify(result));
-      });
-      
-
     </script>
 
     <script src="js/waves-api/dist/waves-api.min.js"></script>
+
+    <script src="js/golos-js/golos.min.js"></script>
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>

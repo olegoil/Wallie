@@ -5,16 +5,16 @@
     <ion-scroll>
 
       <div class="list">
-        <div class="item item-divider" style="height:100px;background-color:green;">
+        <div class="item item-divider" style="height:100px;background-color:green;" ng-click="fctRequest()">
             Total
             <span class="item-note">
               {{ balance }}
             </span>
         </div>
       
-        <a class="item" href="#">
-          Butterfinger
-        </a>
+        <ion-list ng-if="currencies">
+          <ion-item ng-repeat="curr in currencies" ng-model="paysend" ng-value="">{{ curr.bal_currency }} {{ curr.bal_balance }}</ion-item>
+        </ion-list>
       </div>
 
     </ion-scroll>
