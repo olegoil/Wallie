@@ -51,7 +51,7 @@ angular.module('starter.controllers', [])
         getinfo: '1'
       });
 
-      // $scope.checkMessages();
+      $scope.checkMessages();
 
     });
 
